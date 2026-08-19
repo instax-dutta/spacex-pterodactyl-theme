@@ -1,0 +1,859 @@
+/* =========================================================================
+   SPACEX THEME - AUTHENTICATION PAGE STYLING
+   Complete styling for login, register, password reset, and all auth pages
+   ========================================================================= */
+
+/* =========================================================================
+   AUTH PAGE BASE LAYOUT
+   Full-viewport dark canvas with SpaceX background mesh
+   ========================================================================= */
+
+body:has(.auth-wrapper),
+body:has([class*='Auth']),
+body:has(.login-container),
+body:has(.register-container),
+body:has(.password-reset-container),
+.spacex-auth-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: 
+        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(240, 240, 250, 0.03), transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 15%, rgba(240, 240, 250, 0.02), transparent 55%),
+        radial-gradient(ellipse 35% 25% at 50% 30%, rgba(240, 240, 250, 0.01), transparent 45%),
+        linear-gradient(180deg, var(--spacex-canvas) 0%, var(--spacex-canvas-soft) 40rem);
+    background-attachment: fixed;
+    color-scheme: dark;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Auth Wrapper */
+.auth-wrapper,
+[class*='AuthWrapper'],
+.auth-container,
+[class*='AuthContainer'],
+.login-container,
+.register-container,
+.password-reset-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* =========================================================================
+   AUTH FORM STYLING
+   SpaceX-inspired ghost form with spectral white typography
+   ========================================================================= */
+
+.auth-wrapper > form,
+[class*='AuthWrapper'] > form,
+.auth-container > form,
+.login-container > form,
+.register-container > form,
+.password-reset-container > form,
+[class*='AuthForm'],
+form.auth-form {
+    position: relative;
+    max-width: 540px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background-color: var(--spacex-canvas-raised);
+    border: 1px solid var(--spacex-hairline);
+    border-radius: var(--spacex-radius-lg);
+    box-shadow: var(--spacex-shadow-panel);
+    backdrop-filter: blur(12px);
+}
+
+/* Auth Form Background - Optional overlay for depth */
+.auth-wrapper > form::before,
+[class*='AuthWrapper'] > form::before,
+.auth-container > form::before,
+form.auth-form::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--spacex-radius-lg);
+    background: linear-gradient(145deg, 
+        rgba(240, 240, 250, 0.015) 0%,
+        rgba(240, 240, 250, 0.005) 100%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Auth Form Header */
+.auth-wrapper > form > h1,
+.auth-wrapper > form > h2,
+[class*='AuthForm'] > h1,
+[class*='AuthForm'] > h2,
+form.auth-form > h1,
+form.auth-form > h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.25rem;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+}
+
+/* Auth Form Logo */
+.auth-wrapper > form > .logo,
+.auth-wrapper > form > [class*='Logo'],
+[class*='AuthForm'] > .logo,
+[class*='AuthForm'] > [class*='Logo'],
+form.auth-form > .logo,
+form.auth-form > [class*='Logo'] {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.auth-wrapper > form > .logo img,
+[class*='AuthForm'] > .logo img,
+form.auth-form > .logo img {
+    max-width: 200px;
+    height: auto;
+    opacity: 0.9;
+}
+
+/* =========================================================================
+   FORM ELEMENTS - AUTH SPECIFIC
+   ========================================================================= */
+
+/* Form Groups */
+.auth-wrapper > form > .form-group,
+.auth-wrapper > form > [class*='FormGroup'],
+.auth-wrapper > form > div:has(input),
+.auth-wrapper > form > div:has(textarea),
+.auth-wrapper > form > div:has(select),
+[class*='AuthForm'] > .form-group,
+[class*='AuthForm'] > [class*='FormGroup'],
+form.auth-form > .form-group,
+form.auth-form > [class*='FormGroup'] {
+    margin-bottom: 1.25rem;
+}
+
+/* Labels */
+.auth-wrapper > form label,
+.auth-wrapper > form [class*='Label'],
+.auth-wrapper > form .input-help,
+[class*='AuthForm'] label,
+[class*='AuthForm'] [class*='Label'],
+form.auth-form label,
+form.auth-form [class*='Label'] {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--spacex-font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--spacex-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    line-height: 1.2;
+}
+
+/* Input Fields */
+.auth-wrapper > form input:not([type='checkbox']):not([type='radio']):not([type='submit']),
+.auth-wrapper > form textarea,
+.auth-wrapper > form select,
+[class*='AuthForm'] input:not([type='checkbox']):not([type='radio']):not([type='submit']),
+[class*='AuthForm'] textarea,
+[class*='AuthForm'] select,
+form.auth-form input:not([type='checkbox']):not([type='radio']):not([type='submit']),
+form.auth-form textarea,
+form.auth-form select {
+    width: 100%;
+    height: 48px;
+    padding: 0 1rem;
+    font-family: var(--spacex-font-sans);
+    font-size: 1rem;
+    color: var(--spacex-ink);
+    background-color: var(--spacex-canvas-soft);
+    border: 1px solid var(--spacex-hairline);
+    border-radius: var(--spacex-radius);
+    box-shadow: none;
+    transition: all var(--spacex-transition);
+}
+
+.auth-wrapper > form input:not([type='checkbox']):not([type='radio']):not([type='submit']):hover,
+.auth-wrapper > form textarea:hover,
+.auth-wrapper > form select:hover,
+[class*='AuthForm'] input:not([type='checkbox']):not([type='radio']):not([type='submit']):hover,
+[class*='AuthForm'] textarea:hover,
+[class*='AuthForm'] select:hover,
+form.auth-form input:not([type='checkbox']):not([type='radio']):not([type='submit']):hover,
+form.auth-form textarea:hover,
+form.auth-form select:hover {
+    border-color: var(--spacex-hairline-soft);
+}
+
+.auth-wrapper > form input:not([type='checkbox']):not([type='radio']):not([type='submit']):focus,
+.auth-wrapper > form textarea:focus,
+.auth-wrapper > form select:focus,
+[class*='AuthForm'] input:not([type='checkbox']):not([type='radio']):not([type='submit']):focus,
+[class*='AuthForm'] textarea:focus,
+[class*='AuthForm'] select:focus,
+form.auth-form input:not([type='checkbox']):not([type='radio']):not([type='submit']):focus,
+form.auth-form textarea:focus,
+form.auth-form select:focus {
+    border-color: var(--spacex-link);
+    box-shadow: 0 0 0 3px var(--spacex-link-soft);
+    outline: none;
+}
+
+.auth-wrapper > form input:not([type='checkbox']):not([type='radio']):not([type='submit']):disabled,
+.auth-wrapper > form textarea:disabled,
+.auth-wrapper > form select:disabled,
+[class*='AuthForm'] input:not([type='checkbox']):not([type='radio']):not([type='submit']):disabled,
+[class*='AuthForm'] textarea:disabled,
+[class*='AuthForm'] select:disabled,
+form.auth-form input:not([type='checkbox']):not([type='radio']):not([type='submit']):disabled,
+form.auth-form textarea:disabled,
+form.auth-form select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--spacex-canvas-soft-2);
+    border-color: var(--spacex-hairline-soft);
+    color: var(--spacex-muted);
+}
+
+::placeholder {
+    color: var(--spacex-muted);
+    opacity: 1;
+}
+
+/* Input Icons */
+.auth-wrapper > form .input-icon,
+.auth-wrapper > form [class*='InputIcon'],
+[class*='AuthForm'] .input-icon,
+[class*='AuthForm'] [class*='InputIcon'],
+form.auth-form .input-icon,
+form.auth-form [class*='InputIcon'] {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--spacex-muted);
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.auth-wrapper > form input:not([type='checkbox']):not([type='radio']):not([type='submit']) + .input-icon,
+[class*='AuthForm'] input:not([type='checkbox']):not([type='radio']):not([type='submit']) + .input-icon,
+form.auth-form input:not([type='checkbox']):not([type='radio']):not([type='submit']) + .input-icon {
+    left: auto;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* =========================================================================
+   BUTTONS - AUTH SPECIFIC
+   ========================================================================= */
+
+/* Submit Buttons */
+.auth-wrapper > form button[type='submit'],
+.auth-wrapper > form .btn-primary,
+.auth-wrapper > form [class*='btn-primary'],
+.auth-wrapper > form [class*='Submit'],
+[class*='AuthForm'] button[type='submit'],
+[class*='AuthForm'] .btn-primary,
+form.auth-form button[type='submit'],
+form.auth-form .btn-primary {
+    width: 100%;
+    height: 48px;
+    margin-top: 1.5rem;
+    padding: 0 1.5rem;
+    font-family: var(--spacex-font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--spacex-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    line-height: 1;
+    background-color: var(--spacex-ghost-bg);
+    border: 1px solid var(--spacex-ghost-border);
+    border-radius: var(--spacex-radius);
+    cursor: pointer;
+    transition: all var(--spacex-transition);
+    box-shadow: none;
+}
+
+.auth-wrapper > form button[type='submit']:hover,
+.auth-wrapper > form .btn-primary:hover,
+[class*='AuthForm'] button[type='submit']:hover,
+[class*='AuthForm'] .btn-primary:hover,
+form.auth-form button[type='submit']:hover,
+form.auth-form .btn-primary:hover {
+    background-color: var(--spacex-ghost-bg-hover);
+    border-color: var(--spacex-ghost-border-hover);
+    color: var(--spacex-starlight-100);
+    transform: none;
+}
+
+.auth-wrapper > form button[type='submit']:active,
+.auth-wrapper > form .btn-primary:active,
+[class*='AuthForm'] button[type='submit']:active,
+[class*='AuthForm'] .btn-primary:active,
+form.auth-form button[type='submit']:active,
+form.auth-form .btn-primary:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+.auth-wrapper > form button[type='submit']:disabled,
+.auth-wrapper > form .btn-primary:disabled,
+[class*='AuthForm'] button[type='submit']:disabled,
+[class*='AuthForm'] .btn-primary:disabled,
+form.auth-form button[type='submit']:disabled,
+form.auth-form .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--spacex-canvas-soft-2);
+    border-color: var(--spacex-hairline-soft);
+    color: var(--spacex-muted);
+}
+
+/* Secondary Buttons */
+.auth-wrapper > form button[type='button'],
+.auth-wrapper > form .btn-secondary,
+.auth-wrapper > form [class*='btn-secondary'],
+[class*='AuthForm'] button[type='button'],
+[class*='AuthForm'] .btn-secondary,
+form.auth-form button[type='button'],
+form.auth-form .btn-secondary {
+    width: 100%;
+    height: 48px;
+    margin-top: 1rem;
+    padding: 0 1.5rem;
+    font-family: var(--spacex-font-sans);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--spacex-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    background-color: transparent;
+    border: 1px solid var(--spacex-hairline);
+    border-radius: var(--spacex-radius);
+    cursor: pointer;
+    transition: all var(--spacex-transition);
+    box-shadow: none;
+}
+
+.auth-wrapper > form button[type='button']:hover,
+.auth-wrapper > form .btn-secondary:hover,
+[class*='AuthForm'] button[type='button']:hover,
+[class*='AuthForm'] .btn-secondary:hover,
+form.auth-form button[type='button']:hover,
+form.auth-form .btn-secondary:hover {
+    background-color: var(--spacex-canvas-soft);
+    border-color: var(--spacex-hairline-soft);
+    color: var(--spacex-starlight-100);
+}
+
+/* Social Login Buttons */
+.auth-wrapper > form .btn-social,
+.auth-wrapper > form [class*='Social'],
+[class*='AuthForm'] .btn-social,
+[class*='AuthForm'] [class*='Social'],
+form.auth-form .btn-social,
+form.auth-form [class*='Social'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    height: 48px;
+    margin-top: 0.75rem;
+    padding: 0 1rem;
+    font-family: var(--spacex-font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--spacex-body);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--spacex-canvas-soft);
+    border: 1px solid var(--spacex-hairline);
+    border-radius: var(--spacex-radius);
+    cursor: pointer;
+    transition: all var(--spacex-transition);
+}
+
+.auth-wrapper > form .btn-social:hover,
+[class*='AuthForm'] .btn-social:hover,
+form.auth-form .btn-social:hover {
+    background-color: var(--spacex-canvas-soft-2);
+    border-color: var(--spacex-hairline-soft);
+    color: var(--spacex-ink);
+}
+
+.auth-wrapper > form .btn-social svg,
+[class*='AuthForm'] .btn-social svg,
+form.auth-form .btn-social svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+}
+
+/* =========================================================================
+   AUTH FORM FOOTER & LINKS
+   ========================================================================= */
+
+/* Footer Links */
+.auth-wrapper > form .footer,
+.auth-wrapper > form [class*='Footer'],
+[class*='AuthForm'] .footer,
+[class*='AuthForm'] [class*='Footer'],
+form.auth-form .footer,
+form.auth-form [class*='Footer'] {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--spacex-hairline);
+}
+
+.auth-wrapper > form .footer a,
+[class*='AuthForm'] .footer a,
+form.auth-form .footer a {
+    font-family: var(--spacex-font-sans);
+    font-size: 0.875rem;
+    color: var(--spacex-link);
+    text-decoration: none;
+    transition: color var(--spacex-transition);
+}
+
+.auth-wrapper > form .footer a:hover,
+[class*='AuthForm'] .footer a:hover,
+form.auth-form .footer a:hover {
+    color: var(--spacex-link-deep);
+}
+
+/* Text Links */
+.auth-wrapper > form .text-link,
+.auth-wrapper > form [class*='TextLink'],
+[class*='AuthForm'] .text-link,
+[class*='AuthForm'] [class*='TextLink'],
+form.auth-form .text-link,
+form.auth-form [class*='TextLink'] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--spacex-font-sans);
+    font-size: 0.875rem;
+    color: var(--spacex-body);
+    text-decoration: none;
+    transition: color var(--spacex-transition);
+}
+
+.auth-wrapper > form .text-link:hover,
+[class*='AuthForm'] .text-link:hover,
+form.auth-form .text-link:hover {
+    color: var(--spacex-link);
+}
+
+/* Divider with Text */
+.auth-wrapper > form .divider,
+.auth-wrapper > form [class*='Divider'],
+[class*='AuthForm'] .divider,
+[class*='AuthForm'] [class*='Divider'],
+form.auth-form .divider,
+form.auth-form [class*='Divider'] {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.auth-wrapper > form .divider::before,
+.auth-wrapper > form [class*='Divider']::before,
+[class*='AuthForm'] .divider::before,
+form.auth-form .divider::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--spacex-hairline);
+}
+
+.auth-wrapper > form .divider::after,
+.auth-wrapper > form [class*='Divider']::after,
+[class*='AuthForm'] .divider::after,
+form.auth-form .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--spacex-hairline);
+}
+
+.auth-wrapper > form .divider span,
+[class*='AuthForm'] .divider span,
+form.auth-form .divider span {
+    font-family: var(--spacex-font-mono);
+    font-size: 0.75rem;
+    color: var(--spacex-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+}
+
+/* =========================================================================
+   CHECKBOX & RADIO - AUTH SPECIFIC
+   ========================================================================= */
+
+.auth-wrapper > form input[type='checkbox'],
+.auth-wrapper > form input[type='radio'],
+[class*='AuthForm'] input[type='checkbox'],
+[class*='AuthForm'] input[type='radio'],
+form.auth-form input[type='checkbox'],
+form.auth-form input[type='radio'] {
+    width: 20px;
+    height: 20px;
+    margin: 0 0.5rem 0 0;
+    padding: 0;
+    border: 1px solid var(--spacex-hairline-soft);
+    border-radius: var(--spacex-radius-sm);
+    background-color: var(--spacex-canvas-soft);
+    color: var(--spacex-ink);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: all var(--spacex-transition);
+    vertical-align: middle;
+}
+
+.auth-wrapper > form input[type='checkbox']:checked,
+.auth-wrapper > form input[type='radio']:checked,
+[class*='AuthForm'] input[type='checkbox']:checked,
+[class*='AuthForm'] input[type='radio']:checked,
+form.auth-form input[type='checkbox']:checked,
+form.auth-form input[type='radio']:checked {
+    background-color: var(--spacex-link);
+    border-color: var(--spacex-link);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+
+.auth-wrapper > form input[type='checkbox']:focus,
+.auth-wrapper > form input[type='radio']:focus,
+[class*='AuthForm'] input[type='checkbox']:focus,
+[class*='AuthForm'] input[type='radio']:focus,
+form.auth-form input[type='checkbox']:focus,
+form.auth-form input[type='radio']:focus {
+    outline: 2px solid var(--spacex-link);
+    outline-offset: 2px;
+}
+
+/* Checkbox Label */
+.auth-wrapper > form .checkbox-label,
+.auth-wrapper > form label[type='checkbox'] + *,
+.auth-wrapper > form label[for^='checkbox'] + *,
+[class*='AuthForm'] .checkbox-label,
+[class*='AuthForm'] label[type='checkbox'] + *,
+form.auth-form .checkbox-label,
+form.auth-form label[type='checkbox'] + * {
+    font-family: var(--spacex-font-sans);
+    font-size: 0.875rem;
+    color: var(--spacex-body);
+    cursor: pointer;
+}
+
+/* =========================================================================
+   AUTH ALERTS & NOTIFICATIONS
+   ========================================================================= */
+
+.auth-wrapper > form .alert,
+.auth-wrapper > form [class*='Alert'],
+[class*='AuthForm'] .alert,
+[class*='AuthForm'] [class*='Alert'],
+form.auth-form .alert,
+form.auth-form [class*='Alert'] {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--spacex-radius);
+    border: 1px solid var(--spacex-hairline);
+    box-shadow: none;
+}
+
+.auth-wrapper > form .alert-success,
+[class*='AuthForm'] .alert-success,
+form.auth-form .alert-success {
+    background-color: color-mix(in srgb, var(--spacex-success) 12%, var(--spacex-canvas));
+    color: var(--spacex-ink);
+}
+
+.auth-wrapper > form .alert-danger,
+[class*='AuthForm'] .alert-danger,
+form.auth-form .alert-danger {
+    background-color: color-mix(in srgb, var(--spacex-error) 10%, var(--spacex-canvas));
+    color: var(--spacex-ink);
+}
+
+.auth-wrapper > form .alert-warning,
+[class*='AuthForm'] .alert-warning,
+form.auth-form .alert-warning {
+    background-color: color-mix(in srgb, var(--spacex-warning) 12%, var(--spacex-canvas));
+    color: var(--spacex-ink);
+}
+
+.auth-wrapper > form .alert-info,
+[class*='AuthForm'] .alert-info,
+form.auth-form .alert-info {
+    background-color: color-mix(in srgb, var(--spacex-info) 12%, var(--spacex-canvas));
+    color: var(--spacex-ink);
+}
+
+.auth-wrapper > form .alert svg,
+[class*='AuthForm'] .alert svg,
+form.auth-form .alert svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.auth-wrapper > form .alert p,
+[class*='AuthForm'] .alert p,
+form.auth-form .alert p {
+    margin: 0;
+    font-family: var(--spacex-font-sans);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Alert Icons */
+.auth-wrapper > form .alert-success svg { color: var(--spacex-success); }
+.auth-wrapper > form .alert-danger svg { color: var(--spacex-error); }
+.auth-wrapper > form .alert-warning svg { color: var(--spacex-warning); }
+.auth-wrapper > form .alert-info svg { color: var(--spacex-info); }
+
+/* =========================================================================
+   AUTH PAGE TYPOGRAPHY
+   ========================================================================= */
+
+.auth-wrapper p,
+.auth-wrapper span,
+.auth-wrapper a,
+[class*='Auth'] p,
+[class*='Auth'] span,
+[class*='Auth'] a {
+    font-family: var(--spacex-font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--spacex-body);
+}
+
+.auth-wrapper strong,
+.auth-wrapper b,
+[class*='Auth'] strong,
+[class*='Auth'] b {
+    font-weight: 700;
+    color: var(--spacex-ink);
+}
+
+.auth-wrapper small,
+[class*='Auth'] small {
+    font-family: var(--spacex-font-mono);
+    font-size: 0.75rem;
+    color: var(--spacex-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+}
+
+/* =========================================================================
+   AUTH PAGE OVERLAYS & MASKS
+   ========================================================================= */
+
+/* Dark Overlay for Focus */
+.auth-wrapper::before,
+[class*='AuthWrapper']::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, 
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        transparent 100%);
+    pointer-events: none;
+}
+
+/* =========================================================================
+   RESPONSIVE AUTH LAYOUT
+   ========================================================================= */
+
+@media (max-width: 640px) {
+    .auth-wrapper,
+    [class*='AuthWrapper'],
+    .auth-container,
+    .login-container,
+    .register-container,
+    .password-reset-container {
+        padding: 1rem;
+    }
+    
+    .auth-wrapper > form,
+    [class*='AuthWrapper'] > form,
+    .auth-container > form,
+    form.auth-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .auth-wrapper > form > h1,
+    .auth-wrapper > form > h2,
+    [class*='AuthForm'] > h1,
+    [class*='AuthForm'] > h2,
+    form.auth-form > h1,
+    form.auth-form > h2 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (min-width: 641px) {
+    /* Add subtle parallax effect on larger screens */
+    .auth-wrapper,
+    [class*='AuthWrapper'] {
+        background-attachment: fixed;
+    }
+}
+
+/* =========================================================================
+   AUTH COMPONENT-SPECIFIC OVERRIDES
+   For Pterodactyl-specific auth components
+   ========================================================================= */
+
+/* Pterodactyl Login Box */
+.login-box,
+[class*='LoginBox'] {
+    background-color: var(--spacex-canvas-raised) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius-lg) !important;
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+/* Pterodactyl Login Box Header */
+.login-box-header,
+[class*='LoginBoxHeader'] {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--spacex-hairline) !important;
+}
+
+.login-box-header h1,
+[class*='LoginBoxHeader'] h1 {
+    color: var(--spacex-ink) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* Pterodactyl Login Box Body */
+.login-box-body,
+[class*='LoginBoxBody'] {
+    padding: 1.5rem !important;
+}
+
+/* Pterodactyl Login Box Footer */
+.login-box-footer,
+[class*='LoginBoxFooter'] {
+    background-color: transparent !important;
+    border-top: 1px solid var(--spacex-hairline) !important;
+    padding: 1.25rem !important;
+}
+
+/* Pterodactyl Auth Buttons */
+.login-box-body .btn,
+.login-box-footer .btn,
+[class*='LoginBoxBody'] .btn,
+[class*='LoginBoxFooter'] .btn {
+    font-family: var(--spacex-font-sans) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.07em !important;
+}
+
+.login-box-body .btn-primary,
+[class*='LoginBoxBody'] .btn-primary {
+    background-color: var(--spacex-ghost-bg) !important;
+    border-color: var(--spacex-ghost-border) !important;
+    color: var(--spacex-ink) !important;
+    box-shadow: none !important;
+}
+
+.login-box-body .btn-primary:hover,
+[class*='LoginBoxBody'] .btn-primary:hover {
+    background-color: var(--spacex-ghost-bg-hover) !important;
+    border-color: var(--spacex-ghost-border-hover) !important;
+    color: var(--spacex-starlight-100) !important;
+}
+
+.login-box-body .btn-secondary,
+.login-box-footer .btn,
+[class*='LoginBoxBody'] .btn-secondary,
+[class*='LoginBoxFooter'] .btn {
+    background-color: transparent !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.login-box-body .btn-secondary:hover,
+.login-box-footer .btn:hover,
+[class*='LoginBoxBody'] .btn-secondary:hover,
+[class*='LoginBoxFooter'] .btn:hover {
+    background-color: var(--spacex-canvas-soft) !important;
+    border-color: var(--spacex-hairline-soft) !important;
+    color: var(--spacex-starlight-100) !important;
+}
+
+/* Pterodactyl Form Groups */
+.login-box-body .form-group,
+[class*='LoginBoxBody'] .form-group {
+    margin-bottom: 1.25rem !important;
+}
+
+.login-box-body .form-group label,
+[class*='LoginBoxBody'] .form-group label {
+    font-family: var(--spacex-font-mono) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    color: var(--spacex-muted) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.10em !important;
+}
+
+.login-box-body .form-group input,
+[class*='LoginBoxBody'] .form-group input {
+    height: 48px !important;
+    padding: 0 1rem !important;
+    font-family: var(--spacex-font-sans) !important;
+    font-size: 1rem !important;
+    color: var(--spacex-ink) !important;
+    background-color: var(--spacex-canvas-soft) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius) !important;
+}
+
+.login-box-body .form-group input:focus,
+[class*='LoginBoxBody'] .form-group input:focus {
+    border-color: var(--spacex-link) !important;
+    box-shadow: 0 0 0 3px var(--spacex-link-soft) !important;
+}
+
+/* Pterodactyl Alert Styling */
+.login-box-body .alert,
+[class*='LoginBoxBody'] .alert {
+    border-radius: var(--spacex-radius) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    box-shadow: none !important;
+    background-color: color-mix(in srgb, var(--spacex-starlight) 4%, var(--spacex-canvas)) !important;
+    color: var(--spacex-body) !important;
+}
+
+.login-box-body .alert a,
+[class*='LoginBoxBody'] .alert a {
+    color: var(--spacex-link) !important;
+    font-weight: 600 !important;
+}

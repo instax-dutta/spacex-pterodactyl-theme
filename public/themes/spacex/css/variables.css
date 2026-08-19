@@ -1,0 +1,108 @@
+/* =========================================================================
+   SPACEX THEME - CSS CUSTOM PROPERTIES
+   Pure dark mode, SpaceX-inspired design tokens
+   ========================================================================= */
+
+:root {
+    /* PRIMARY COLORS */
+    --spacex-void: #000000;
+    --spacex-starlight: #f0f0fa;
+    --spacex-starlight-100: #ffffff;
+    
+    /* CANVAS ELEVATIONS */
+    --spacex-canvas: #000000;
+    --spacex-canvas-soft: #040408;
+    --spacex-canvas-soft-2: #080810;
+    --spacex-canvas-raised: #0c0c14;
+    --spacex-canvas-raised-2: #101018;
+    --spacex-canvas-raised-3: #141420;
+    --spacex-canvas-floating: #181828;
+    
+    /* TEXT HIERARCHY */
+    --spacex-ink: #f0f0fa;
+    --spacex-body: #a0a0b0;
+    --spacex-muted: #686878;
+    --spacex-muted-2: #484858;
+    --spacex-faint: #30303e;
+    
+    /* BORDERS */
+    --spacex-hairline: #1c1c28;
+    --spacex-hairline-soft: #282838;
+    --spacex-hairline-strong: #343448;
+    
+    /* INTERACTIVE */
+    --spacex-ghost-bg: rgba(240, 240, 250, 0.10);
+    --spacex-ghost-border: rgba(240, 240, 250, 0.35);
+    --spacex-ghost-bg-hover: rgba(240, 240, 250, 0.15);
+    --spacex-ghost-border-hover: rgba(240, 240, 250, 0.50);
+    --spacex-overlay: rgba(0, 0, 0, 0.50);
+    --spacex-overlay-soft: rgba(0, 0, 0, 0.30);
+    
+    /* SEMANTIC COLORS */
+    --spacex-primary: #f0f0fa;
+    --spacex-on-primary: #000000;
+    --spacex-link: #58a6ff;
+    --spacex-link-deep: #4090ff;
+    --spacex-link-muted: #387acc;
+    --spacex-link-soft: rgba(88, 166, 255, 0.15);
+    --spacex-link-border: rgba(88, 166, 255, 0.40);
+    
+    --spacex-success: #3fb950;
+    --spacex-success-soft: rgba(63, 185, 80, 0.15);
+    --spacex-success-border: rgba(63, 185, 80, 0.40);
+    
+    --spacex-error: #f85149;
+    --spacex-error-soft: rgba(248, 81, 73, 0.15);
+    --spacex-error-border: rgba(248, 81, 73, 0.40);
+    
+    --spacex-warning: #d29922;
+    --spacex-warning-soft: rgba(210, 153, 34, 0.15);
+    --spacex-warning-border: rgba(210, 153, 34, 0.40);
+    
+    --spacex-info: #58a6ff;
+    --spacex-info-soft: rgba(88, 166, 255, 0.15);
+    --spacex-info-border: rgba(88, 166, 255, 0.40);
+    
+    /* SPACING */
+    --spacex-radius-sm: 4px;
+    --spacex-radius: 6px;
+    --spacex-radius-md: 8px;
+    --spacex-radius-lg: 10px;
+    --spacex-radius-xl: 12px;
+    --spacex-radius-2xl: 16px;
+    --spacex-radius-3xl: 32px;
+    --spacex-radius-full: 9999px;
+    
+    /* TYPOGRAPHY */
+    --spacex-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --spacex-font-mono: 'SF Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+    
+    /* SHADOWS */
+    --spacex-shadow-none: none;
+    --spacex-shadow-sm: 0 1px 1px rgba(0, 0, 0, 0.20);
+    --spacex-shadow: 0 2px 4px rgba(0, 0, 0, 0.30);
+    --spacex-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.40);
+    --spacex-shadow-panel: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 16px -4px rgba(0, 0, 0, 0.45);
+    
+    /* TRANSITIONS */
+    --spacex-transition-fast: 120ms ease;
+    --spacex-transition: 150ms ease;
+    --spacex-transition-slow: 200ms ease;
+    
+    /* ENFORCE DARK MODE */
+    color-scheme: dark;
+    -webkit-color-scheme: dark;
+    -moz-color-scheme: dark;
+}
+
+/* HIGH CONTRAST MODE */
+@media (prefers-contrast: high) {
+    :root {
+        --spacex-ink: #ffffff;
+        --spacex-body: #d0d0d0;
+        --spacex-muted: #a0a0a0;
+        --spacex-hairline: #404040;
+        --spacex-ghost-bg: rgba(255, 255, 255, 0.15);
+        --spacex-ghost-border: rgba(255, 255, 255, 0.50);
+    }
+}
