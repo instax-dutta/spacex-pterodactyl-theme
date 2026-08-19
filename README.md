@@ -1,6 +1,10 @@
 # SpaceX Inspired Pterodactyl Theme
 
-A premium dark theme for Pterodactyl game server panels, inspired by SpaceX's industrial aerospace design aesthetic.
+[![GitHub Stars](https://img.shields.io/github/stars/instax-dutta/spacex-pterodactyl-theme?style=flat-square)](https://github.com/instax-dutta/spacex-pterodactyl-theme/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/instax-dutta/spacex-pterodactyl-theme?style=flat-square)](https://github.com/instax-dutta/spacex-pterodactyl-theme/issues)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+A premium **dark mode only** theme for Pterodactyl game server panels, inspired by SpaceX's industrial aerospace design aesthetic.
 
 ## Design Philosophy
 
@@ -20,27 +24,45 @@ This theme brings the cinematic, mission-focused design language of SpaceX to yo
 |-----------|--------|
 | **Color Palette** | Black (#000000) + Spectral White (#f0f0fa) |
 | **Typography** | Inter (fallback) with uppercase, positive letter-spacing |
-| **Buttons** | Ghost style with spectral borders, 32px radius |
+| **Buttons** | Ghost style with spectral borders, 6px radius |
 | **Background** | Subtle spectral gradient mesh on pure black |
 | **Cards** | Dark raised surfaces with hairline borders |
 
 ## Features
 
-- Full SpaceX-inspired color palette
+- Full SpaceX-inspired color palette with CSS custom properties
 - D-DIN typography style (using Inter as fallback)
 - Universal uppercase text with proper letter-spacing
 - Ghost button styling matching SpaceX's design
 - Dark gradient overlays for text legibility
 - Minimal shadow usage (as per SpaceX philosophy)
+- **Complete coverage** of admin panel and user-facing pages
 - Responsive design for all screen sizes
-- Admin panel overrides for AdminLTE 2
+- AdminLTE 2.x skin overrides
 - Authentication page styling
 - File manager integration
-- Terminal and code editor theming
+- Terminal and code editor theming (xterm, CodeMirror)
+- Select2 dropdown styling
+- DataTables support
+- SweetAlert2 theming
+- Modular CSS architecture for easy customization
 
 ## Installation
 
-### Quick Install
+### One-Command Install (Online)
+
+```bash
+# Run this from your Pterodactyl root directory
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/instax-dutta/spacex-pterodactyl-theme/master/install.sh)"
+```
+
+This will automatically:
+- Clone the theme repository
+- Copy files to correct locations
+- Set proper permissions
+- Clear Laravel cache
+
+### Quick Install (Manual Git Clone)
 
 ```bash
 # Clone the theme
@@ -50,6 +72,8 @@ git clone https://github.com/instax-dutta/spacex-pterodactyl-theme.git
 # Run the installer
 bash spacex-pterodactyl-theme/install.sh
 ```
+
+### Manual Installation
 
 ### Manual Installation
 
@@ -136,8 +160,14 @@ spacex-pterodactyl-theme/
 ├── public/
 │   └── themes/
 │       └── spacex/
+│           ├── css/               # Modular CSS architecture
+│           │   ├── variables.css    # Design tokens & CSS custom properties
+│           │   ├── base.css         # Reset, typography, forms, scrollbars
+│           │   ├── layout.css       # Grid, spacing, responsive utilities
+│           │   ├── components.css   # All interactive components
+│           │   └── auth.css         # Authentication page styling
 │           ├── spacex.css          # Main theme styles (user-facing)
-│           └── theme.css           # Admin panel overrides
+│           └── theme.css           # Admin panel overrides (AdminLTE)
 └── resources/
     ├── scripts/
     │   ├── assets/
