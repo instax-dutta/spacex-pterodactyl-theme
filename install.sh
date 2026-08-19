@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_ZIP_URL="${REPO_ZIP_URL:-https://github.com/instax-dutta/spacex-pterodactyl-theme/archive/refs/heads/main.zip}"
+REPO_ZIP_URL="${REPO_ZIP_URL:-https://github.com/instax-dutta/spacex-pterodactyl-theme/archive/refs/heads/master.zip}"
 DEFAULT_TMP_DIR="${TMPDIR:-/tmp}"
-SELF_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SELF_PATH="${SELF_PATH:-$(cd "$(dirname "${0}")" && pwd)}"
 
 log() {
     printf '[spacex-theme] %s\n' "$1" >&2
@@ -118,8 +118,10 @@ install_theme() {
     sudo_cmd install -m 0644 "$source_dir/resources/views/templates/wrapper.blade.php" "$panel_dir/resources/views/templates/wrapper.blade.php"
     sudo_cmd install -m 0644 "$source_dir/resources/views/templates/base/core.blade.php" "$panel_dir/resources/views/templates/base/core.blade.php"
     sudo_cmd install -m 0644 "$source_dir/resources/views/layouts/admin.blade.php" "$panel_dir/resources/views/layouts/admin.blade.php"
+    sudo_cmd mkdir -p "$panel_dir/public/themes/spacex/css"
     sudo_cmd install -m 0644 "$source_dir/public/themes/spacex/spacex.css" "$panel_dir/public/themes/spacex/spacex.css"
     sudo_cmd install -m 0644 "$source_dir/public/themes/spacex/theme.css" "$panel_dir/public/themes/spacex/theme.css"
+    sudo_cmd cp -r "$source_dir/public/themes/spacex/css/." "$panel_dir/public/themes/spacex/css/"
 
     log "copying React component source files..."
     sudo_cmd mkdir -p "$panel_dir/resources/scripts"
