@@ -1,0 +1,640 @@
+/* ============================================================
+   SPACEX THEME - AdminLTE 2 / Pterodactyl Admin Overrides
+   Direction: Industrial aerospace command center
+   ============================================================ */
+
+:root {
+    /* Admin-specific SpaceX colors */
+    --spacex-admin-sidebar: #000000;
+    --spacex-admin-topbar: rgb(0 0 0 / 0.94);
+    --spacex-admin-active: rgb(240 240 250 / 0.08);
+    --spacex-admin-hover: rgb(240 240 250 / 0.04);
+    --spacex-admin-rule: rgb(255 255 255 / 0.05);
+    --spacex-admin-rule-soft: rgb(255 255 255 / 0.03);
+    --spacex-admin-surface: #000000;
+    --spacex-admin-surface-raised: #080810;
+}
+
+body,
+.wrapper,
+.content-wrapper,
+.right-side {
+    background:
+        radial-gradient(ellipse 80% 40% at 30% 0%, rgb(240 240 250 / 0.03), transparent 60%),
+        var(--spacex-canvas) !important;
+    color: var(--spacex-body) !important;
+}
+
+body,
+body * {
+    text-shadow: none !important;
+}
+
+/* ============================================================
+   TOP NAVIGATION BAR
+   ============================================================ */
+
+.skin-blue .wrapper,
+.wrapper {
+    background: var(--spacex-admin-sidebar) !important;
+}
+
+.skin-blue .main-header .logo,
+.skin-blue .main-header .navbar,
+.main-header .logo,
+.main-header .navbar,
+.navbar-static-top {
+    background: var(--spacex-admin-topbar) !important;
+    color: var(--spacex-ink) !important;
+    border-bottom: 1px solid var(--spacex-admin-rule) !important;
+    box-shadow: none !important;
+    min-height: 56px !important;
+}
+
+.skin-blue .main-header .logo {
+    border-right: 1px solid var(--spacex-admin-rule) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.96px !important;
+    line-height: 56px !important;
+    height: 56px !important;
+    font-size: 20px !important;
+    text-align: left !important;
+    padding-left: 28px !important;
+    text-transform: uppercase !important;
+}
+
+.skin-blue .main-header .logo:hover,
+.skin-blue .main-header .navbar .sidebar-toggle:hover,
+.skin-blue .main-header .navbar .nav > li > a:hover,
+.skin-blue .main-header .navbar .nav > li > a:focus {
+    background: var(--spacex-admin-hover) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.main-header .navbar .sidebar-toggle {
+    height: 56px !important;
+    padding: 18px 17px !important;
+    color: var(--spacex-body) !important;
+}
+
+.main-header .navbar .nav > li > a {
+    height: 56px !important;
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+    color: var(--spacex-body) !important;
+}
+
+.navbar-nav > .user-menu > a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+}
+
+.navbar-nav > .user-menu .user-image {
+    width: 24px !important;
+    height: 24px !important;
+    margin-top: 0 !important;
+    border: 1px solid var(--spacex-admin-rule) !important;
+}
+
+/* ============================================================
+   SIDEBAR NAVIGATION
+   ============================================================ */
+
+.skin-blue .main-sidebar {
+    border-right: 1px solid var(--spacex-admin-rule) !important;
+    padding-top: 56px !important;
+}
+
+.skin-blue .sidebar a,
+.skin-blue .sidebar-menu > li > a {
+    color: var(--spacex-body) !important;
+}
+
+.sidebar {
+    padding: 10px 10px 18px !important;
+}
+
+.skin-blue .sidebar-menu > li.header {
+    background: transparent !important;
+    color: var(--spacex-muted) !important;
+    font-family: var(--spacex-font-mono) !important;
+    font-size: 11px !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+    padding: 17px 9px 8px !important;
+}
+
+.skin-blue .sidebar-menu > li > a {
+    position: relative !important;
+    border-left: 0 !important;
+    margin: 1px 0 !important;
+    padding: 10px 12px 10px 18px !important;
+    border-radius: 0 !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+    color: var(--spacex-body) !important;
+}
+
+.skin-blue .sidebar-menu > li:hover > a,
+.skin-blue .sidebar-menu > li.active > a,
+.skin-blue .sidebar-menu > li.menu-open > a {
+    background: transparent !important;
+    color: var(--spacex-ink) !important;
+}
+
+.skin-blue .sidebar-menu > li > a::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 9px !important;
+    bottom: 9px !important;
+    width: 2px !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+}
+
+.skin-blue .sidebar-menu > li:hover > a::before,
+.skin-blue .sidebar-menu > li.active > a::before,
+.skin-blue .sidebar-menu > li.menu-open > a::before {
+    background: var(--spacex-link) !important;
+}
+
+.skin-blue .sidebar-menu > li > a > i {
+    width: 18px !important;
+    margin-right: 8px !important;
+    color: var(--spacex-muted) !important;
+    text-align: center !important;
+}
+
+.skin-blue .sidebar-menu > li.active > a > i,
+.skin-blue .sidebar-menu > li:hover > a > i {
+    color: var(--spacex-ink) !important;
+}
+
+.skin-blue .sidebar-menu > li > .treeview-menu {
+    background: transparent !important;
+}
+
+.skin-blue .treeview-menu > li > a,
+.skin-blue .treeview-menu > li.active > a,
+.skin-blue .treeview-menu > li > a:hover {
+    color: var(--spacex-body) !important;
+}
+
+/* ============================================================
+   CONTENT AREA
+   ============================================================ */
+
+.content-header > h1,
+.content-header > h1 > small,
+.box-title,
+.modal-title,
+.main-footer,
+.main-footer a,
+.small-box h3,
+.small-box p {
+    color: var(--spacex-ink) !important;
+}
+
+.content-wrapper {
+    min-height: calc(100vh - 56px) !important;
+}
+
+.content-header {
+    padding: 18px 28px 8px !important;
+}
+
+.content-header > h1 {
+    font-size: 23px !important;
+    line-height: 1.15 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.96px !important;
+    text-transform: uppercase !important;
+}
+
+.content-header > h1 > small {
+    display: inline-block !important;
+    margin-left: 4px !important;
+    font-size: 13px !important;
+    letter-spacing: 0 !important;
+    font-weight: 400 !important;
+}
+
+.content-header > .breadcrumb {
+    top: 20px !important;
+    right: 28px !important;
+    font-size: 11px !important;
+    color: var(--spacex-muted) !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+}
+
+.content {
+    padding: 8px 28px 28px !important;
+}
+
+.content-header > h1 > small,
+.main-footer,
+.small.text-gray,
+.text-muted,
+.help-block {
+    color: var(--spacex-muted) !important;
+}
+
+/* ============================================================
+   BOXES AND CARDS
+   ============================================================ */
+
+.box,
+.small-box,
+.info-box,
+.callout,
+.nav-tabs-custom,
+.modal-content,
+.well {
+    background: var(--spacex-canvas-raised) !important;
+    color: var(--spacex-body) !important;
+    border: 1px solid var(--spacex-admin-rule) !important;
+    border-radius: var(--spacex-radius-lg) !important;
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+.box-header {
+    padding: 16px 20px 14px !important;
+    background: transparent !important;
+}
+
+.box-body {
+    padding: 20px !important;
+}
+
+.box-header,
+.box-footer,
+.nav-tabs-custom > .nav-tabs,
+.modal-header,
+.modal-footer {
+    background: transparent !important;
+    border-color: var(--spacex-admin-rule-soft) !important;
+}
+
+.box.box-primary,
+.box.box-info,
+.box.box-success,
+.box.box-warning,
+.box.box-danger {
+    border-top-color: var(--spacex-admin-rule) !important;
+}
+
+.box-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.96px !important;
+    color: var(--spacex-ink) !important;
+    text-transform: uppercase !important;
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+
+.table,
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > thead > tr > th {
+    color: var(--spacex-body) !important;
+    border-color: var(--spacex-admin-rule-soft) !important;
+    background: transparent !important;
+}
+
+.table > thead > tr > th {
+    color: var(--spacex-muted) !important;
+    font-family: var(--spacex-font-mono) !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.17px !important;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle !important;
+}
+
+.table-hover > tbody > tr:hover,
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background: var(--spacex-admin-hover) !important;
+}
+
+.box .table,
+.box .table-bordered,
+.box .table-responsive,
+.box .dataTables_wrapper {
+    background: transparent !important;
+}
+
+/* ============================================================
+   INFO BOXES AND SMALL BOXES
+   ============================================================ */
+
+.small-box {
+    position: relative;
+    overflow: hidden;
+    background: var(--spacex-admin-surface-raised) !important;
+}
+
+.small-box::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1px;
+    background: var(--spacex-admin-rule);
+    opacity: 1;
+}
+
+.info-box {
+    background: var(--spacex-admin-surface-raised) !important;
+}
+
+/* ============================================================
+   FORMS AND INPUTS
+   ============================================================ */
+
+.form-control,
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+    background: var(--spacex-canvas) !important;
+    color: var(--spacex-ink) !important;
+    border: 1px solid var(--spacex-admin-rule) !important;
+    border-radius: var(--spacex-radius) !important;
+    box-shadow: none !important;
+    min-height: 36px !important;
+}
+
+.form-control:focus,
+.select2-container--default.select2-container--focus .select2-selection--multiple,
+.select2-container--default .select2-selection--single:focus {
+    border-color: var(--spacex-hairline-strong, #333333) !important;
+    box-shadow: 0 0 0 2px rgb(240 240 250 / 0.08) !important;
+}
+
+.form-control::placeholder {
+    color: var(--spacex-muted) !important;
+}
+
+.content code,
+.content kbd,
+.content pre,
+.content samp,
+.content td code,
+.content td kbd,
+.content td pre,
+.content td samp,
+.content .label-default,
+.content .badge {
+    background: rgb(255 255 255 / 0.045) !important;
+    border: 1px solid var(--spacex-admin-rule) !important;
+    border-radius: 5px !important;
+    color: var(--spacex-body) !important;
+    font-family: var(--spacex-font-mono) !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    padding: 2px 5px !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+    border-radius: var(--spacex-radius) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    border-width: 1px !important;
+    box-shadow: none !important;
+    padding: 7px 12px !important;
+    line-height: 1.35 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.17px !important;
+}
+
+.btn-primary,
+.label-primary {
+    background: rgba(240, 240, 250, 0.055) !important;
+    border-color: rgba(240, 240, 250, 0.12) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.btn-default,
+.btn-secondary {
+    background: var(--spacex-admin-hover) !important;
+    border-color: var(--spacex-admin-rule) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.btn-danger,
+.label-danger {
+    background: var(--spacex-error) !important;
+    border-color: var(--spacex-error) !important;
+    color: #fff !important;
+}
+
+.btn-warning,
+.label-warning {
+    background: rgb(246 193 119 / 0.1) !important;
+    border-color: rgb(246 193 119 / 0.22) !important;
+    color: var(--spacex-warning) !important;
+}
+
+.btn:hover,
+.btn:focus {
+    opacity: 0.9;
+    transform: none;
+}
+
+.btn-block {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 38px !important;
+    border-radius: var(--spacex-radius-3xl) !important;
+}
+
+.content .btn-block,
+.content a.btn-block,
+.content .box-tools .btn,
+.content .box-footer .btn,
+.content .btn-primary,
+.content a.btn-primary {
+    background: rgb(255 255 255 / 0.045) !important;
+    border: 1px solid var(--spacex-admin-rule) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.content .btn-block.btn-warning {
+    background: rgb(246 193 119 / 0.08) !important;
+    border-color: rgb(246 193 119 / 0.18) !important;
+    color: #ffd28e !important;
+}
+
+.content .btn-block.btn-primary,
+.content .btn-block.btn-success {
+    background: rgb(255 255 255 / 0.05) !important;
+    border-color: var(--spacex-admin-rule) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.content .btn-block:hover,
+.content .btn-block:focus,
+.content .box-tools .btn:hover,
+.content .box-tools .btn:focus,
+.content .btn-primary:hover,
+.content .btn-primary:focus {
+    background: rgb(255 255 255 / 0.075) !important;
+    border-color: rgb(255 255 255 / 0.12) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.content .box-tools .input-group,
+.content .box-tools .input-group-btn,
+.content .box-tools input,
+.content .box-tools .form-control {
+    background: transparent !important;
+}
+
+/* ============================================================
+   ALERTS
+   ============================================================ */
+
+.alert {
+    border-radius: var(--spacex-radius) !important;
+    border: 1px solid var(--spacex-admin-rule) !important;
+    box-shadow: none !important;
+}
+
+.alert-success {
+    background: color-mix(in srgb, var(--spacex-success) 14%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.alert-danger {
+    background: color-mix(in srgb, var(--spacex-error) 12%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.alert-warning {
+    background: color-mix(in srgb, var(--spacex-warning) 14%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.main-footer {
+    background: var(--spacex-canvas) !important;
+    border-top: 1px solid var(--spacex-admin-rule) !important;
+    color: var(--spacex-muted) !important;
+    min-height: 26px !important;
+    padding: 7px 18px !important;
+    font-size: 11px !important;
+    letter-spacing: 1.17px !important;
+}
+
+.main-footer a {
+    color: var(--spacex-link) !important;
+    text-decoration: none !important;
+}
+
+/* ============================================================
+   MODALS
+   ============================================================ */
+
+.modal-content {
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+/* ============================================================
+   DROPDOWNS
+   ============================================================ */
+
+.dropdown-menu {
+    background: var(--spacex-canvas-raised) !important;
+    border: 1px solid var(--spacex-admin-rule) !important;
+    border-radius: var(--spacex-radius) !important;
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+.dropdown-menu > li > a {
+    color: var(--spacex-body) !important;
+}
+
+.dropdown-menu > li > a:hover {
+    background: var(--spacex-canvas-soft) !important;
+    color: var(--spacex-ink) !important;
+}
+
+/* ============================================================
+   NAV TABS AND PAGINATION
+   ============================================================ */
+
+.nav-tabs-custom > .nav-tabs > li > a,
+.pagination > li > a,
+.pagination > li > span {
+    color: var(--spacex-body) !important;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active {
+    border-top-color: var(--spacex-primary) !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span {
+    background: #edf1f7 !important;
+    border-color: #edf1f7 !important;
+    color: #0b1017 !important;
+}
+
+/* ============================================================
+   USER PANEL AND SIDEBAR FORMS
+   ============================================================ */
+
+.user-panel > .info,
+.user-panel > .info > a,
+.sidebar-form input[type='text'],
+.sidebar-form .btn {
+    color: var(--spacex-body) !important;
+}
+
+/* ============================================================
+   LABELS AND BADGES
+   ============================================================ */
+
+.label,
+.badge {
+    border-radius: 5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+}
+
+/* ============================================================
+   PROGRESS BARS
+   ============================================================ */
+
+.progress,
+.progress-bar {
+    border-radius: 999px !important;
+}
+
+/* ============================================================
+   CANVAS
+   ============================================================ */
+
+canvas {
+    background: transparent !important;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "spacex-pterodactyl-theme",
+  "description": "SpaceX-inspired dark theme for Pterodactyl game server panels. Industrial aerospace design with D-DIN typography and spectral white accents.",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "pterodactyl",
+    "theme",
+    "spacex",
+    "dark",
+    "aerospace",
+    "din"
+  ],
+  "author": " Saidutta Abhishek Dash",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instax-dutta/spacex-pterodactyl-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/instax-dutta/spacex-pterodactyl-theme/issues"
+  },
+  "homepage": "https://github.com/instax-dutta/spacex-pterodactyl-theme#readme"
+}

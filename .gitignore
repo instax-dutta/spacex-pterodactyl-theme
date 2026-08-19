@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+public/assets/
+
+# Build artifacts
+*.log
+*.swp
+*.swo
+
+# IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Cache
+/.cache/
+/.parcel-cache/
+
+# Distribution
+/dist/
+/build/
+
+# Composer
+vendor/
+composer.lock
+
+# Yarn
+.yarn/
+yarn-error.log
+yarn.lock
+
+# Test coverage
+/coverage/

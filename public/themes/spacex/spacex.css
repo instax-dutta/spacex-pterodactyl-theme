@@ -1,0 +1,1289 @@
+/* ============================================================
+   SPACEX INSPIRED PTERODACTYL THEME
+   Design: Pure black canvas with spectral white typography
+   Typography: D-DIN inspired (uppercase, positive letter-spacing)
+   Colors: #000000 (black), #f0f0fa (spectral white)
+   Ghost Buttons: rgba(240, 240, 250, 0.1) with rgba(240, 240, 250, 0.35) border
+   ============================================================ */
+
+:root {
+    /* SpaceX Color Palette */
+    --spacex-black: #000000;
+    --spacex-spectral: #f0f0fa;
+    --spacex-ghost-surface: rgba(240, 240, 250, 0.1);
+    --spacex-ghost-border: rgba(240, 240, 250, 0.35);
+    --spacex-overlay: rgba(0, 0, 0, 0.5);
+    --spacex-white-100: #ffffff;
+    
+    /* Canvas Colors */
+    --spacex-canvas: #000000;
+    --spacex-canvas-soft: #080810;
+    --spacex-canvas-soft-2: #101020;
+    --spacex-canvas-raised: #181828;
+    
+    /* Text Colors */
+    --spacex-ink: #f0f0fa;
+    --spacex-body: #a8a8b8;
+    --spacex-muted: #6c6c7c;
+    
+    /* Border Colors */
+    --spacex-hairline: #202040;
+    --spacex-hairline-strong: #30303e;
+    
+    /* Accent Colors */
+    --spacex-primary: #f0f0fa;
+    --spacex-on-primary: #000000;
+    --spacex-link: #60a5fa;
+    --spacex-link-deep: #3b82f6;
+    --spacex-success: #22c55e;
+    --spacex-error: #ef4444;
+    --spacex-warning: #facc15;
+    --spacex-cyan: #06b6d4;
+    
+    /* Shadows */
+    --spacex-shadow-sm: 0 1px 2px rgba(240, 240, 250, 0.05);
+    --spacex-shadow: 0 2px 4px rgba(240, 240, 250, 0.1);
+    --spacex-shadow-panel: 0 2px 4px rgba(0, 0, 0, 0.2), 0 8px 16px -4px rgba(0, 0, 0, 0.4);
+    
+    /* Typography */
+    --spacex-font-sans: 'Inter', 'D-DIN', system-ui, -apple-system, sans-serif;
+    --spacex-font-mono: 'D-DIN Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    
+    /* Spacing */
+    --spacex-radius-sm: 4px;
+    --spacex-radius: 6px;
+    --spacex-radius-lg: 8px;
+    --spacex-radius-xl: 12px;
+    --spacex-radius-3xl: 32px;
+    
+    /* Color scheme */
+    color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--spacex-canvas);
+    color: var(--spacex-ink);
+    font-family: var(--spacex-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--spacex-canvas) !important;
+    color: var(--spacex-body) !important;
+    font-family: var(--spacex-font-sans) !important;
+    letter-spacing: 0.015em;
+}
+
+/* SpaceX Background Mesh - Subtle spectral gradients */
+body.spacex-mesh,
+body:has(.spacex-auth-shell) {
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(240, 240, 250, 0.03), transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 15%, rgba(240, 240, 250, 0.02), transparent 55%),
+        radial-gradient(ellipse 35% 25% at 50% 30%, rgba(240, 240, 250, 0.01), transparent 45%),
+        linear-gradient(180deg, var(--spacex-canvas) 0%, var(--spacex-canvas-soft) 40rem) !important;
+}
+
+/* ============================================================
+   TYPOGRAPHY - SPACEX STYLE
+   All text uppercase with positive letter-spacing
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--spacex-ink) !important;
+    font-weight: 700 !important;
+    font-family: var(--spacex-font-sans) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.96px !important;
+    line-height: 1.00 !important;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+    letter-spacing: 0.96px !important;
+}
+
+h2 {
+    font-size: 2rem !important;
+    letter-spacing: 0.96px !important;
+}
+
+h3 {
+    font-size: 1.5rem !important;
+    letter-spacing: 1.17px !important;
+}
+
+h4, h5, h6 {
+    font-size: 1.125rem !important;
+    letter-spacing: 1.17px !important;
+}
+
+p, span, label, li, td {
+    color: inherit;
+}
+
+strong, b {
+    font-weight: 700 !important;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none;
+}
+
+/* Navigation, Table Headers, and Labels - Uppercase with wide tracking */
+th,
+.table th,
+[class*='TableHeader'],
+[class*='LabelMono'],
+.nav-link,
+.sidebar-menu > li > a,
+.breadcrumb > li,
+.breadcrumb > li > a {
+    font-family: var(--spacex-font-mono) !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.17px !important;
+    color: var(--spacex-muted) !important;
+}
+
+/* ============================================================
+   INPUTS AND FORMS
+   ============================================================ */
+
+input:not([type='checkbox']):not([type='radio']),
+textarea,
+select,
+.form-control {
+    background: var(--spacex-canvas-soft) !important;
+    color: var(--spacex-ink) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius) !important;
+    box-shadow: none !important;
+}
+
+input:not([type='checkbox']):not([type='radio']):hover,
+textarea:hover,
+select:hover,
+.form-control:hover {
+    border-color: var(--spacex-hairline-strong) !important;
+}
+
+input:not([type='checkbox']):not([type='radio']):focus,
+textarea:focus,
+select:focus,
+.form-control:focus {
+    border-color: var(--spacex-link) !important;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.15) !important;
+}
+
+/* ============================================================
+   BUTTONS - SPACEX GHOST STYLE
+   Primary: rgba(240, 240, 250, 0.1) background with spectral border
+   ============================================================ */
+
+button,
+.btn {
+    font-family: var(--spacex-font-sans) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.17px !important;
+    transition: all 0.15s ease !important;
+}
+
+.btn-primary,
+button[type='submit']:not(.btn-secondary):not(.btn-danger) {
+    background-color: var(--spacex-ghost-surface) !important;
+    border-color: var(--spacex-ghost-border) !important;
+    color: var(--spacex-ink) !important;
+    border-radius: var(--spacex-radius-3xl) !important;
+}
+
+.btn-primary:hover,
+button[type='submit']:not(.btn-secondary):not(.btn-danger):hover {
+    background-color: rgba(240, 240, 250, 0.15) !important;
+    border-color: rgba(240, 240, 250, 0.45) !important;
+    color: var(--spacex-white-100) !important;
+}
+
+.btn-secondary,
+.btn-default {
+    background-color: transparent !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    color: var(--spacex-ink) !important;
+    border-radius: var(--spacex-radius) !important;
+}
+
+.btn-secondary:hover,
+.btn-default:hover {
+    background-color: var(--spacex-canvas-soft) !important;
+    border-color: var(--spacex-hairline-strong) !important;
+}
+
+.btn-danger {
+    background-color: var(--spacex-error) !important;
+    border-color: var(--spacex-error) !important;
+    color: var(--spacex-white-100) !important;
+    border-radius: var(--spacex-radius) !important;
+}
+
+.btn-success {
+    background-color: var(--spacex-success) !important;
+    border-color: var(--spacex-success) !important;
+    color: var(--spacex-white-100) !important;
+    border-radius: var(--spacex-radius) !important;
+}
+
+/* ============================================================
+   SCROLLBAR - MINIMAL SPACEX STYLE
+   ============================================================ */
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--spacex-hairline-strong);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Selection */
+::selection {
+    background: var(--spacex-primary);
+    color: var(--spacex-on-primary);
+}
+
+/* ============================================================
+   TERMINAL AND CODE EDITORS
+   ============================================================ */
+
+xterm,
+.xterm-viewport,
+.xterm-screen,
+.CodeMirror,
+pre:not(.CodeMirror-line):not(.CodeMirror-placeholder) {
+    background: var(--spacex-canvas) !important;
+    color: var(--spacex-ink) !important;
+    border-color: var(--spacex-hairline) !important;
+}
+
+.CodeMirror-gutters,
+.cm-s-default .CodeMirror-gutters,
+.cm-s-material .CodeMirror-gutters,
+.cm-s-ayu-mirage .CodeMirror-gutters {
+    background: var(--spacex-canvas) !important;
+    border-right-color: var(--spacex-hairline) !important;
+}
+
+.CodeMirror-linenumber,
+.cm-s-ayu-mirage .CodeMirror-linenumber {
+    color: var(--spacex-muted) !important;
+}
+
+.CodeMirror-cursor,
+.cm-s-ayu-mirage .CodeMirror-cursor {
+    border-left: 1px solid var(--spacex-ink) !important;
+}
+
+.CodeMirror-activeline-background,
+.cm-s-ayu-mirage .CodeMirror-activeline-background {
+    background: rgb(255 255 255 / 0.025) !important;
+}
+
+.CodeMirror-selected,
+.cm-s-ayu-mirage .CodeMirror-selected,
+.CodeMirror-focused .CodeMirror-selected {
+    background: rgb(59 130 246 / 0.22) !important;
+}
+
+.CodeMirror-line::selection,
+.CodeMirror-line > span::selection,
+.CodeMirror-line > span > span::selection {
+    background: rgb(59 130 246 / 0.32) !important;
+    color: inherit !important;
+}
+
+.CodeMirror-matchingbracket,
+.cm-s-ayu-mirage .CodeMirror-matchingbracket {
+    color: var(--spacex-cyan) !important;
+    background: rgb(80 227 194 / 0.12) !important;
+}
+
+.CodeMirror-foldgutter,
+.CodeMirror-foldmarker {
+    color: var(--spacex-muted) !important;
+}
+
+.CodeMirror-foldmarker {
+    text-shadow: none !important;
+}
+
+.CodeMirror-guttermarker,
+.CodeMirror-guttermarker-subtle {
+    color: var(--spacex-muted) !important;
+}
+
+.CodeMirror-scrollbar-filler,
+.CodeMirror-gutter-filler {
+    background: var(--spacex-canvas-soft-2) !important;
+}
+
+/* ============================================================
+   CARDS AND CONTAINERS
+   ============================================================ */
+
+.box,
+.small-box,
+.info-box,
+.callout,
+.nav-tabs-custom,
+.modal-content,
+.well,
+[class*='GreyRowBox'],
+[class*='StatBlock'],
+[class*='ServerDetails'],
+[class*='NetworkStats'],
+[class*='TitledGreyBox'] {
+    background: var(--spacex-canvas-raised) !important;
+    color: var(--spacex-body) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius-lg) !important;
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+/* File manager row styling */
+body.spacex-canvas .style-module_HHpjDvv7 {
+    background: var(--spacex-canvas-raised) !important;
+    background-color: var(--spacex-canvas-raised) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius-lg) !important;
+    color: var(--spacex-body) !important;
+    margin-bottom: 4px !important;
+}
+
+body.spacex-canvas .style-module_HHpjDvv7 > .style-module_le7taa7N,
+body.spacex-canvas .style-module_HHpjDvv7 > .style-module_le7taa7N > * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+body.spacex-canvas .style-module_HHpjDvv7 .style-module_le7taa7N,
+body.spacex-canvas .style-module_HHpjDvv7 .style-module_le7taa7N span,
+body.spacex-canvas .style-module_HHpjDvv7 .style-module_le7taa7N a {
+    color: var(--spacex-body) !important;
+}
+
+body.spacex-canvas .style-module_HHpjDvv7:has(input[type="checkbox"]:checked) {
+    background: color-mix(in srgb, var(--spacex-primary) 6%, var(--spacex-canvas-raised)) !important;
+    background-color: color-mix(in srgb, var(--spacex-primary) 6%, var(--spacex-canvas-raised)) !important;
+    border-color: color-mix(in srgb, var(--spacex-primary) 30%, var(--spacex-hairline)) !important;
+}
+
+body.spacex-canvas .style-module_HHpjDvv7:has(input[type="checkbox"]:checked) .style-module_le7taa7N,
+body.spacex-canvas .style-module_HHpjDvv7:has(input[type="checkbox"]:checked) .style-module_le7taa7N span,
+body.spacex-canvas .style-module_HHpjDvv7:has(input[type="checkbox"]:checked) .style-module_le7taa7N a {
+    color: var(--spacex-ink) !important;
+}
+
+body.spacex-canvas .style-module_HHpjDvv7:hover:not(:has(input[type="checkbox"]:checked)) {
+    background: var(--spacex-canvas-soft-2) !important;
+    background-color: var(--spacex-canvas-soft-2) !important;
+    border-color: var(--spacex-hairline-strong) !important;
+    color: var(--spacex-ink) !important;
+}
+
+body.spacex-canvas .style-module_HHpjDvv7 input[type="checkbox"],
+body.spacex-canvas .style-module_fqm1ZNax input[type="checkbox"] {
+    border-color: var(--spacex-hairline-strong) !important;
+    background-color: transparent !important;
+}
+
+body.spacex-canvas .style-module_HHpjDvv7 input[type="checkbox"]:hover,
+body.spacex-canvas .style-module_fqm1ZNax input[type="checkbox"]:hover {
+    border-color: var(--spacex-link) !important;
+}
+
+body.spacex-canvas .style-module_HHpjDvv7 input[type="checkbox"]:checked,
+body.spacex-canvas .style-module_fqm1ZNax input[type="checkbox"]:checked {
+    background-color: var(--spacex-link) !important;
+    border-color: var(--spacex-link) !important;
+    color: var(--spacex-link) !important;
+}
+
+/* ============================================================
+   NAVIGATION BAR
+   ============================================================ */
+
+div[class*='NavigationBar'],
+div[class*='navigation-bar'],
+header,
+nav,
+div[class*='SubNavigation'],
+div[class*='ServerSubNavigation'],
+div[class*='NavigationRouter'],
+div[class*='SubNavBar'] {
+    background: color-mix(in srgb, var(--spacex-canvas) 92%, transparent) !important;
+    border-color: var(--spacex-hairline) !important;
+}
+
+/* ============================================================
+   ALERTS
+   ============================================================ */
+
+.alert {
+    border-radius: var(--spacex-radius) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    box-shadow: none !important;
+}
+
+.alert-success {
+    background: color-mix(in srgb, var(--spacex-success) 14%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.alert-danger {
+    background: color-mix(in srgb, var(--spacex-error) 12%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.alert-warning {
+    background: color-mix(in srgb, var(--spacex-warning) 14%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.alert-info {
+    background: color-mix(in srgb, var(--spacex-link) 14%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+
+.table,
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > thead > tr > th {
+    color: var(--spacex-body) !important;
+    border-color: var(--spacex-hairline) !important;
+    background: transparent !important;
+}
+
+.table > thead > tr > th {
+    color: var(--spacex-muted) !important;
+    font-family: var(--spacex-font-mono) !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.17px !important;
+}
+
+.table-hover > tbody > tr:hover {
+    background: color-mix(in srgb, var(--spacex-spectral) 4%, var(--spacex-canvas)) !important;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle !important;
+}
+
+/* ============================================================
+   DROPDOWNS
+   ============================================================ */
+
+.dropdown-menu {
+    background: var(--spacex-canvas-raised) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius) !important;
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+.dropdown-menu > li > a {
+    color: var(--spacex-body) !important;
+}
+
+.dropdown-menu > li > a:hover {
+    background: var(--spacex-canvas-soft) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.dropdown-menu > li > a:hover {
+    background: var(--spacex-canvas-soft) !important;
+    color: var(--spacex-ink) !important;
+}
+
+/* Background color overrides for Pterodactyl classes */
+.bg-gray-950,
+.bg-neutral-950,
+.bg-slate-950,
+.bg-zinc-950,
+.bg-black {
+    background-color: var(--spacex-canvas) !important;
+}
+
+.bg-gray-900,
+.bg-neutral-900,
+.bg-slate-900,
+.bg-zinc-900 {
+    background-color: var(--spacex-canvas-soft) !important;
+}
+
+.bg-gray-800,
+.bg-neutral-800,
+.bg-slate-800,
+.bg-zinc-800 {
+    background-color: var(--spacex-canvas-soft-2) !important;
+}
+
+.bg-gray-700,
+.bg-neutral-700,
+.bg-slate-700,
+.bg-zinc-700 {
+    background-color: #202040 !important;
+}
+
+.bg-gray-600,
+.bg-neutral-600,
+.bg-slate-600,
+.bg-zinc-600,
+.bg-gray-500,
+.bg-neutral-500,
+.bg-slate-500,
+.bg-zinc-500 {
+    background-color: #30303e !important;
+}
+
+.bg-white,
+.bg-light {
+    background-color: var(--spacex-canvas-soft) !important;
+    color: var(--spacex-ink) !important;
+}
+
+/* Text color overrides */
+.text-gray-50,
+.text-gray-100,
+.text-neutral-100,
+.text-slate-100,
+.text-zinc-100,
+.text-white {
+    color: var(--spacex-ink) !important;
+}
+
+.text-gray-200,
+.text-neutral-200,
+.text-slate-200,
+.text-zinc-200,
+.text-gray-300,
+.text-neutral-300,
+.text-slate-300,
+.text-zinc-300 {
+    color: var(--spacex-body) !important;
+}
+
+.text-gray-400,
+.text-neutral-400,
+.text-slate-400,
+.text-zinc-400,
+.text-gray-500,
+.text-neutral-500,
+.text-slate-500,
+.text-zinc-500 {
+    color: var(--spacex-muted) !important;
+}
+
+/* Border color overrides */
+.border-gray-950,
+.border-neutral-950,
+.border-slate-950,
+.border-zinc-950 {
+    border-color: var(--spacex-canvas) !important;
+}
+
+.border-gray-900,
+.border-neutral-900,
+.border-slate-900,
+.border-zinc-900 {
+    border-color: var(--spacex-hairline) !important;
+}
+
+.border-gray-800,
+.border-neutral-800,
+.border-slate-800,
+.border-zinc-800 {
+    border-color: #30303e !important;
+}
+
+.border-gray-700,
+.border-neutral-700,
+.border-slate-700,
+.border-zinc-700,
+.border,
+.border-top,
+.border-right,
+.border-bottom,
+.border-left {
+    border-color: var(--spacex-hairline-strong) !important;
+}
+
+/* ============================================================
+   ADMIN PANEL OVERRIDES
+   ============================================================ */
+
+.skin-blue .wrapper,
+.skin-blue .main-sidebar,
+.skin-blue .left-side {
+    background: var(--spacex-canvas) !important;
+}
+
+.skin-blue .main-header .logo,
+.skin-blue .main-header .navbar,
+.main-header .logo,
+.main-header .navbar,
+.navbar-static-top {
+    background: color-mix(in srgb, var(--spacex-canvas) 94%, transparent) !important;
+    color: var(--spacex-ink) !important;
+    border-bottom: 1px solid var(--spacex-hairline) !important;
+    box-shadow: none !important;
+    min-height: 56px !important;
+}
+
+.skin-blue .main-header .logo {
+    border-right: 1px solid var(--spacex-hairline) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.96px !important;
+    line-height: 56px !important;
+    height: 56px !important;
+    font-size: 20px !important;
+    text-align: left !important;
+    padding-left: 28px !important;
+    text-transform: uppercase !important;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle {
+    height: 56px !important;
+    padding: 18px 17px !important;
+    color: var(--spacex-body) !important;
+}
+
+.skin-blue .main-header .navbar .nav > li > a {
+    height: 56px !important;
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+    color: var(--spacex-body) !important;
+}
+
+.navbar-nav > .user-menu > a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+}
+
+.navbar-nav > .user-menu .user-image {
+    width: 24px !important;
+    height: 24px !important;
+    margin-top: 0 !important;
+    border: 1px solid var(--spacex-hairline) !important;
+}
+
+.skin-blue .sidebar a,
+.skin-blue .sidebar-menu > li > a {
+    color: var(--spacex-body) !important;
+}
+
+.sidebar {
+    padding: 10px 10px 18px !important;
+}
+
+.skin-blue .main-sidebar {
+    border-right: 1px solid var(--spacex-hairline) !important;
+    padding-top: 56px !important;
+}
+
+.skin-blue .sidebar-menu > li.header {
+    background: transparent !important;
+    color: var(--spacex-muted) !important;
+    font-family: var(--spacex-font-mono) !important;
+    font-size: 11px !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+    padding: 17px 9px 8px !important;
+}
+
+.skin-blue .sidebar-menu > li > a {
+    position: relative !important;
+    border-left: 0 !important;
+    margin: 1px 0 !important;
+    padding: 10px 12px 10px 18px !important;
+    border-radius: 0 !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+    color: var(--spacex-body) !important;
+}
+
+.skin-blue .sidebar-menu > li:hover > a,
+.skin-blue .sidebar-menu > li.active > a,
+.skin-blue .sidebar-menu > li.menu-open > a {
+    background: transparent !important;
+    color: var(--spacex-ink) !important;
+}
+
+.skin-blue .sidebar-menu > li > a::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 9px !important;
+    bottom: 9px !important;
+    width: 2px !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+}
+
+.skin-blue .sidebar-menu > li:hover > a::before,
+.skin-blue .sidebar-menu > li.active > a::before,
+.skin-blue .sidebar-menu > li.menu-open > a::before {
+    background: var(--spacex-link) !important;
+}
+
+.skin-blue .sidebar-menu > li > a > i {
+    width: 18px !important;
+    margin-right: 8px !important;
+    color: var(--spacex-muted) !important;
+    text-align: center !important;
+}
+
+.skin-blue .sidebar-menu > li.active > a > i,
+.skin-blue .sidebar-menu > li:hover > a > i {
+    color: var(--spacex-ink) !important;
+}
+
+.skin-blue .sidebar-menu > li > .treeview-menu {
+    background: transparent !important;
+}
+
+.skin-blue .treeview-menu > li > a,
+.skin-blue .treeview-menu > li.active > a,
+.skin-blue .treeview-menu > li > a:hover {
+    color: var(--spacex-body) !important;
+}
+
+.content-header > h1,
+.content-header > h1 > small,
+.box-title,
+.modal-title,
+.main-footer,
+.main-footer a,
+.small-box h3,
+.small-box p {
+    color: var(--spacex-ink) !important;
+}
+
+.content-wrapper {
+    min-height: calc(100vh - 56px) !important;
+}
+
+.content-header {
+    padding: 18px 28px 8px !important;
+}
+
+.content-header > h1 {
+    font-size: 23px !important;
+    line-height: 1.15 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.96px !important;
+    text-transform: uppercase !important;
+}
+
+.content-header > h1 > small {
+    display: inline-block !important;
+    margin-left: 4px !important;
+    font-size: 13px !important;
+    letter-spacing: 0 !important;
+    font-weight: 400 !important;
+}
+
+.content-header > .breadcrumb {
+    top: 20px !important;
+    right: 28px !important;
+    font-size: 11px !important;
+    color: var(--spacex-muted) !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+}
+
+.content {
+    padding: 8px 28px 28px !important;
+}
+
+.content-header > h1 > small,
+.main-footer,
+.small.text-gray,
+.text-muted,
+.help-block {
+    color: var(--spacex-muted) !important;
+}
+
+.box,
+.small-box,
+.info-box,
+.callout,
+.nav-tabs-custom,
+.modal-content,
+.well {
+    background: var(--spacex-canvas-raised) !important;
+    color: var(--spacex-body) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius-lg) !important;
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+.box-header {
+    padding: 16px 20px 14px !important;
+    background: transparent !important;
+}
+
+.box-body {
+    padding: 20px !important;
+}
+
+.box-header,
+.box-footer,
+.nav-tabs-custom > .nav-tabs,
+.modal-header,
+.modal-footer {
+    background: transparent !important;
+    border-color: var(--spacex-hairline) !important;
+}
+
+.box.box-primary,
+.box.box-info,
+.box.box-success,
+.box.box-warning,
+.box.box-danger {
+    border-top-color: var(--spacex-hairline) !important;
+}
+
+.box-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.96px !important;
+    color: var(--spacex-ink) !important;
+    text-transform: uppercase !important;
+}
+
+.table,
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > thead > tr > th {
+    color: var(--spacex-body) !important;
+    border-color: var(--spacex-hairline) !important;
+    background: transparent !important;
+}
+
+.table > thead > tr > th {
+    color: var(--spacex-muted) !important;
+    font-family: var(--spacex-font-mono) !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.17px !important;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle !important;
+}
+
+.table-hover > tbody > tr:hover,
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background: color-mix(in srgb, var(--spacex-spectral) 4%, var(--spacex-canvas)) !important;
+}
+
+.box .table,
+.box .table-bordered,
+.box .table-responsive,
+.box .dataTables_wrapper {
+    background: transparent !important;
+}
+
+.small-box {
+    position: relative;
+    overflow: hidden;
+    background: var(--spacex-canvas-raised) !important;
+}
+
+.small-box::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 1px;
+    background: var(--spacex-hairline);
+    opacity: 1;
+}
+
+.info-box {
+    background: var(--spacex-canvas-raised) !important;
+}
+
+.form-control,
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+    background: var(--spacex-canvas-soft) !important;
+    color: var(--spacex-ink) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius) !important;
+    box-shadow: none !important;
+    min-height: 36px !important;
+}
+
+.form-control:focus,
+.select2-container--default.select2-container--focus .select2-selection--multiple,
+.select2-container--default .select2-selection--single:focus {
+    border-color: var(--spacex-hairline-strong) !important;
+    box-shadow: 0 0 0 2px rgba(240, 240, 250, 0.08) !important;
+}
+
+.form-control::placeholder {
+    color: var(--spacex-muted) !important;
+}
+
+.btn {
+    border-radius: var(--spacex-radius) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    border-width: 1px !important;
+    box-shadow: none !important;
+    padding: 7px 12px !important;
+    line-height: 1.35 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.17px !important;
+}
+
+.btn-primary,
+.label-primary {
+    background: rgba(240, 240, 250, 0.1) !important;
+    border-color: rgba(240, 240, 250, 0.35) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.btn-primary:hover {
+    background: rgba(240, 240, 250, 0.15) !important;
+    border-color: rgba(240, 240, 250, 0.45) !important;
+    color: var(--spacex-white-100) !important;
+}
+
+.btn-default,
+.btn-secondary {
+    background: color-mix(in srgb, var(--spacex-spectral) 4%, var(--spacex-canvas)) !important;
+    border-color: var(--spacex-hairline) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.btn-default:hover,
+.btn-secondary:hover {
+    background: var(--spacex-canvas-soft) !important;
+    border-color: var(--spacex-hairline-strong) !important;
+}
+
+.btn-danger,
+.label-danger {
+    background: var(--spacex-error) !important;
+    border-color: var(--spacex-error) !important;
+    color: #fff !important;
+}
+
+.btn-warning,
+.label-warning {
+    background: color-mix(in srgb, var(--spacex-warning) 10%, var(--spacex-canvas)) !important;
+    border-color: color-mix(in srgb, var(--spacex-warning) 20%, var(--spacex-canvas)) !important;
+    color: var(--spacex-warning) !important;
+}
+
+.btn:hover,
+.btn:focus {
+    opacity: 0.9;
+    transform: none;
+}
+
+.btn-block {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 38px !important;
+    border-radius: var(--spacex-radius-3xl) !important;
+}
+
+.content .btn-block,
+.content a.btn-block,
+.content .box-tools .btn,
+.content .box-footer .btn,
+.content .btn-primary,
+.content a.btn-primary {
+    background: rgba(240, 240, 250, 0.1) !important;
+    border: 1px solid rgba(240, 240, 250, 0.35) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.content .btn-block.btn-warning {
+    background: color-mix(in srgb, var(--spacex-warning) 8%, var(--spacex-canvas)) !important;
+    border-color: color-mix(in srgb, var(--spacex-warning) 18%, var(--spacex-canvas)) !important;
+    color: #ffd28e !important;
+}
+
+.content .btn-block.btn-primary,
+.content .btn-block.btn-success {
+    background: rgba(240, 240, 250, 0.1) !important;
+    border-color: rgba(240, 240, 250, 0.35) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.content .btn-block:hover,
+.content .btn-block:focus,
+.content .box-tools .btn:hover,
+.content .box-tools .btn:focus,
+.content .btn-primary:hover,
+.content .btn-primary:focus {
+    background: rgba(240, 240, 250, 0.15) !important;
+    border-color: rgba(240, 240, 250, 0.45) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.content .box-tools .input-group,
+.content .box-tools .input-group-btn,
+.content .box-tools input,
+.content .box-tools .form-control {
+    background: transparent !important;
+}
+
+.alert {
+    border-radius: var(--spacex-radius) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    box-shadow: none !important;
+}
+
+.alert-success {
+    background: color-mix(in srgb, var(--spacex-success) 14%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.alert-danger {
+    background: color-mix(in srgb, var(--spacex-error) 12%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.alert-warning {
+    background: color-mix(in srgb, var(--spacex-warning) 14%, var(--spacex-canvas)) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.main-footer {
+    background: var(--spacex-canvas) !important;
+    border-top: 1px solid var(--spacex-hairline) !important;
+    color: var(--spacex-muted) !important;
+    min-height: 26px !important;
+    padding: 7px 18px !important;
+    font-size: 11px !important;
+    letter-spacing: 1.17px !important;
+}
+
+.main-footer a {
+    color: var(--spacex-link) !important;
+    text-decoration: none !important;
+}
+
+.modal-content {
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+.dropdown-menu {
+    background: var(--spacex-canvas-raised) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius) !important;
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+.dropdown-menu > li > a {
+    color: var(--spacex-body) !important;
+}
+
+.dropdown-menu > li > a:hover {
+    background: var(--spacex-canvas-soft) !important;
+    color: var(--spacex-ink) !important;
+}
+
+.nav-tabs-custom > .nav-tabs > li > a,
+.pagination > li > a,
+.pagination > li > span {
+    color: var(--spacex-body) !important;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active {
+    border-top-color: var(--spacex-link) !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span {
+    background: #edf1f7 !important;
+    border-color: #edf1f7 !important;
+    color: #0b1017 !important;
+}
+
+.user-panel > .info,
+.user-panel > .info > a,
+.sidebar-form input[type='text'],
+.sidebar-form .btn {
+    color: var(--spacex-body) !important;
+}
+
+.label,
+.badge {
+    border-radius: 5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+}
+
+.progress,
+.progress-bar {
+    border-radius: 999px !important;
+}
+
+canvas {
+    background: transparent !important;
+}
+
+/* ============================================================
+   AUTH PAGES - SPACEX STYLE
+   ============================================================ */
+
+body:has(.spacex-auth-shell) form {
+    position: relative;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+body:has(.spacex-auth-shell) form > div,
+body:has(.spacex-auth-shell) form > .w-full,
+body:has(.spacex-auth-shell) form > [class*='bg-white'],
+body:has(.spacex-auth-shell) form > [class*='shadow'] {
+    display: block !important;
+    max-width: 540px !important;
+    margin: 0 auto !important;
+    padding: 36px !important;
+    background: var(--spacex-canvas-raised) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius-lg) !important;
+    box-shadow: var(--spacex-shadow-panel) !important;
+}
+
+body:has(.spacex-auth-shell) form > div > div:last-child {
+    width: 100% !important;
+    max-width: none !important;
+    flex: 1 1 auto !important;
+    margin: 0 !important;
+}
+
+body:has(.spacex-auth-shell) h2 {
+    max-width: 540px;
+    margin: 0 auto 20px !important;
+    font-size: 36px !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.96px !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+}
+
+body:has(.spacex-auth-shell) form label,
+body:has(.spacex-auth-shell) form [class*='label'],
+body:has(.spacex-auth-shell) form .input-help {
+    color: var(--spacex-muted) !important;
+    font-size: 11px !important;
+    letter-spacing: 1.17px !important;
+    text-transform: uppercase !important;
+}
+
+body:has(.spacex-auth-shell) form .input-help.error {
+    color: var(--spacex-error) !important;
+}
+
+body:has(.spacex-auth-shell) form input,
+body:has(.spacex-auth-shell) form textarea,
+body:has(.spacex-auth-shell) form select {
+    height: 44px !important;
+    padding: 0 16px !important;
+    background: var(--spacex-canvas) !important;
+    border: 1px solid var(--spacex-hairline) !important;
+    border-radius: var(--spacex-radius) !important;
+    color: var(--spacex-ink) !important;
+    box-shadow: none !important;
+}
+
+body:has(.spacex-auth-shell) form input:hover,
+body:has(.spacex-auth-shell) form textarea:hover,
+body:has(.spacex-auth-shell) form select:hover {
+    border-color: var(--spacex-hairline-strong) !important;
+}
+
+body:has(.spacex-auth-shell) form button[type='submit'],
+body:has(.spacex-auth-shell) form .btn-primary,
+body:has(.spacex-auth-shell) form [class*='bg-blue'] {
+    height: 44px !important;
+    margin-top: 10px !important;
+    background: var(--spacex-ghost-surface) !important;
+    border: 1px solid var(--spacex-ghost-border) !important;
+    border-radius: var(--spacex-radius-3xl) !important;
+    color: var(--spacex-ink) !important;
+    box-shadow: none !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.17px !important;
+}
+
+body:has(.spacex-auth-shell) form button[type='submit']:hover,
+body:has(.spacex-auth-shell) form .btn-primary:hover {
+    background: rgba(240, 240, 250, 0.15) !important;
+    border-color: rgba(240, 240, 250, 0.45) !important;
+    color: var(--spacex-white-100) !important;
+    transform: none;
+}
+
+body:has(.spacex-auth-shell) form a[href*='password'],
+body:has(.spacex-auth-shell) form + p a,
+body:has(.spacex-auth-shell) > p a {
+    color: var(--spacex-muted) !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+body:has(.spacex-auth-shell) form a[href*='password']:hover {
+    color: var(--spacex-body) !important;
+    text-decoration: none;
+}
+
+body:has(.spacex-auth-shell) > p {
+    max-width: 540px;
+    margin: 18px auto 0 !important;
+    text-align: left !important;
+}
