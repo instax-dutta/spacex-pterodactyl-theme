@@ -1,108 +1,95 @@
-/* =========================================================================
-   SPACEX THEME - CSS CUSTOM PROPERTIES
-   Pure dark mode, SpaceX-inspired design tokens
-   ========================================================================= */
+/* ==========================================================================
+   SPACEX THEME — DESIGN TOKENS
+   A restrained aerospace palette with explicit surface and state tokens.
+   ========================================================================== */
 
 :root {
-    /* PRIMARY COLORS */
     --spacex-void: #000000;
+    --spacex-canvas: #050508;
+    --spacex-canvas-soft: #0a0a0f;
+    --spacex-canvas-soft-2: #101016;
+    --spacex-canvas-raised: #15151d;
+    --spacex-canvas-raised-2: #1b1b25;
+    --spacex-canvas-floating: #22222e;
+
+    --spacex-ink: #f0f0fa;
     --spacex-starlight: #f0f0fa;
     --spacex-starlight-100: #ffffff;
-    
-    /* CANVAS ELEVATIONS */
-    --spacex-canvas: #000000;
-    --spacex-canvas-soft: #040408;
-    --spacex-canvas-soft-2: #080810;
-    --spacex-canvas-raised: #0c0c14;
-    --spacex-canvas-raised-2: #101018;
-    --spacex-canvas-raised-3: #141420;
-    --spacex-canvas-floating: #181828;
-    
-    /* TEXT HIERARCHY */
-    --spacex-ink: #f0f0fa;
-    --spacex-body: #a0a0b0;
-    --spacex-muted: #686878;
-    --spacex-muted-2: #484858;
-    --spacex-faint: #30303e;
-    
-    /* BORDERS */
-    --spacex-hairline: #1c1c28;
-    --spacex-hairline-soft: #282838;
-    --spacex-hairline-strong: #343448;
-    
-    /* INTERACTIVE */
+    --spacex-body: #b7b7c5;
+    --spacex-muted: #858593;
+    --spacex-muted-2: #5f5f6b;
+    --spacex-faint: #3e3e49;
+
+    --spacex-hairline: #292932;
+    --spacex-hairline-soft: #383843;
+    --spacex-hairline-strong: #50505c;
+
     --spacex-ghost-bg: rgba(240, 240, 250, 0.10);
-    --spacex-ghost-border: rgba(240, 240, 250, 0.35);
-    --spacex-ghost-bg-hover: rgba(240, 240, 250, 0.15);
-    --spacex-ghost-border-hover: rgba(240, 240, 250, 0.50);
-    --spacex-overlay: rgba(0, 0, 0, 0.50);
-    --spacex-overlay-soft: rgba(0, 0, 0, 0.30);
-    
-    /* SEMANTIC COLORS */
+    --spacex-ghost-bg-hover: rgba(240, 240, 250, 0.16);
+    --spacex-ghost-border: rgba(240, 240, 250, 0.34);
+    --spacex-ghost-border-hover: rgba(240, 240, 250, 0.58);
+    --spacex-overlay: rgba(0, 0, 0, 0.72);
+    --spacex-overlay-soft: rgba(0, 0, 0, 0.40);
+
     --spacex-primary: #f0f0fa;
-    --spacex-on-primary: #000000;
-    --spacex-link: #58a6ff;
-    --spacex-link-deep: #4090ff;
-    --spacex-link-muted: #387acc;
-    --spacex-link-soft: rgba(88, 166, 255, 0.15);
-    --spacex-link-border: rgba(88, 166, 255, 0.40);
-    
-    --spacex-success: #3fb950;
-    --spacex-success-soft: rgba(63, 185, 80, 0.15);
-    --spacex-success-border: rgba(63, 185, 80, 0.40);
-    
-    --spacex-error: #f85149;
-    --spacex-error-soft: rgba(248, 81, 73, 0.15);
-    --spacex-error-border: rgba(248, 81, 73, 0.40);
-    
-    --spacex-warning: #d29922;
-    --spacex-warning-soft: rgba(210, 153, 34, 0.15);
-    --spacex-warning-border: rgba(210, 153, 34, 0.40);
-    
-    --spacex-info: #58a6ff;
-    --spacex-info-soft: rgba(88, 166, 255, 0.15);
-    --spacex-info-border: rgba(88, 166, 255, 0.40);
-    
-    /* SPACING */
+    --spacex-on-primary: #050508;
+    --spacex-link: #70b7ff;
+    --spacex-link-deep: #4e9cf5;
+    --spacex-link-muted: #376fba;
+    --spacex-link-soft: rgba(112, 183, 255, 0.16);
+    --spacex-link-border: rgba(112, 183, 255, 0.42);
+
+    --spacex-success: #4fd36a;
+    --spacex-success-bg: rgba(79, 211, 106, 0.13);
+    --spacex-success-border: rgba(79, 211, 106, 0.42);
+    --spacex-error: #ff6b63;
+    --spacex-error-bg: rgba(255, 107, 99, 0.13);
+    --spacex-error-border: rgba(255, 107, 99, 0.44);
+    --spacex-warning: #e7b84b;
+    --spacex-warning-bg: rgba(231, 184, 75, 0.14);
+    --spacex-warning-border: rgba(231, 184, 75, 0.44);
+    --spacex-info: #70b7ff;
+    --spacex-info-bg: rgba(112, 183, 255, 0.14);
+    --spacex-info-border: rgba(112, 183, 255, 0.42);
+
+    --spacex-font-sans: 'Inter', 'D-DIN', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --spacex-font-mono: 'D-DIN Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+
     --spacex-radius-sm: 4px;
     --spacex-radius: 6px;
     --spacex-radius-md: 8px;
     --spacex-radius-lg: 10px;
-    --spacex-radius-xl: 12px;
-    --spacex-radius-2xl: 16px;
-    --spacex-radius-3xl: 32px;
+    --spacex-radius-xl: 14px;
     --spacex-radius-full: 9999px;
-    
-    /* TYPOGRAPHY */
-    --spacex-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --spacex-font-mono: 'SF Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
-    
-    /* SHADOWS */
+
     --spacex-shadow-none: none;
-    --spacex-shadow-sm: 0 1px 1px rgba(0, 0, 0, 0.20);
-    --spacex-shadow: 0 2px 4px rgba(0, 0, 0, 0.30);
-    --spacex-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.40);
-    --spacex-shadow-panel: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 16px -4px rgba(0, 0, 0, 0.45);
-    
-    /* TRANSITIONS */
+    --spacex-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.28);
+    --spacex-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
+    --spacex-shadow-panel: 0 8px 24px rgba(0, 0, 0, 0.26);
+
     --spacex-transition-fast: 120ms ease;
-    --spacex-transition: 150ms ease;
-    --spacex-transition-slow: 200ms ease;
-    
-    /* ENFORCE DARK MODE */
+    --spacex-transition: 160ms ease;
+    --spacex-transition-slow: 240ms ease;
+
+    --spacex-header-height: 56px;
+    --spacex-sidebar-width: 236px;
+    --spacex-content-max: 1440px;
+
+    /* Legacy aliases used by existing panel overrides. */
+    --spacex-black: var(--spacex-void);
+    --spacex-spectral: var(--spacex-starlight);
+    --spacex-ghost-surface: var(--spacex-ghost-bg);
+
     color-scheme: dark;
-    -webkit-color-scheme: dark;
-    -moz-color-scheme: dark;
 }
 
-/* HIGH CONTRAST MODE */
 @media (prefers-contrast: high) {
     :root {
         --spacex-ink: #ffffff;
-        --spacex-body: #d0d0d0;
-        --spacex-muted: #a0a0a0;
-        --spacex-hairline: #404040;
-        --spacex-ghost-bg: rgba(255, 255, 255, 0.15);
-        --spacex-ghost-border: rgba(255, 255, 255, 0.50);
+        --spacex-body: #e2e2e2;
+        --spacex-muted: #b9b9b9;
+        --spacex-hairline: #55555f;
+        --spacex-hairline-soft: #74747e;
+        --spacex-ghost-border: rgba(255, 255, 255, 0.60);
     }
 }

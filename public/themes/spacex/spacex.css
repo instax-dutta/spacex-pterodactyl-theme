@@ -1,85 +1,40 @@
-/* =========================================================================
-   SPACEX INSPIRED PTERODACTYL THEME - MAIN STYLESHEET
-   
-   Import all modular CSS files
-   ========================================================================= */
+/* ==========================================================================
+   SPACEX THEME — USER PANEL ENTRYPOINT
+   ========================================================================== */
 
-/* 1. Variables and Design Tokens */
 @import url("css/variables.css");
-
-/* 2. Base Styles (Reset, Typography, Scrollbars, Forms) */
 @import url("css/base.css");
-
-/* 3. Layout & Structure */
 @import url("css/layout.css");
-
-/* 4. Components */
 @import url("css/components.css");
-
-/* 5. Layout Utilities */
-@import url("css/layout.css");
-
-/* 6. Authentication Pages */
 @import url("css/auth.css");
 
-/* 7. Admin Panel Overrides */
-@import url("theme.css");
-
-/* =========================================================================
-   ADDITIONAL DIRECT STYLES
-   ========================================================================= */
-
-/* Ensures the theme is applied to all elements */
-html,
-body,
-html *,
-body * {
-    background-color: var(--spacex-canvas) !important;
-    color: var(--spacex-body) !important;
+/* Lightweight page hooks for the user-facing panel. Admin-only layout lives
+   in theme.css and is loaded separately by the admin Blade layout. */
+.spacex-canvas {
+    min-height: 100vh;
+    background-color: var(--spacex-canvas);
 }
 
-/* Remove any forced light backgrounds */
-[style*="background-color: white"],
-[style*="background-color: #fff"],
-[style*="background-color: #ffffff"],
-[style*="background: white"],
-[style*="background: #fff"],
-[style*="background: #ffffff"] {
-    background-color: var(--spacex-canvas-soft) !important;
+.spacex-canvas .page-content,
+.spacex-canvas main {
+    min-width: 0;
 }
-
-/* Remove any forced light colors */
-[style*="color: white"],
-[style*="color: #fff"],
-[style*="color: #ffffff"] {
-    color: var(--spacex-ink) !important;
-}
-
-/* =========================================================================
-   PRINT STYLES
-   ========================================================================= */
 
 @media print {
     body {
-        background-color: var(--spacex-canvas) !important;
-        color: var(--spacex-body) !important;
+        background: #fff !important;
+        color: #111 !important;
     }
-    .btn, button, a {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+
+    a {
+        color: #111 !important;
+        text-decoration: underline;
     }
-}
 
-/* =========================================================================
-   REDUCED MOTION
-   ========================================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+    .no-print,
+    .main-header,
+    .main-sidebar,
+    .main-footer {
+        display: none !important;
     }
 }

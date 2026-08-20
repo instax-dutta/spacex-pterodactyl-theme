@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#050508">
+    <title>SpaceX Theme / Local Test Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="spacex.css">
+    <link rel="stylesheet" href="theme.css">
+    <style>
+        .test-panel-note { color: var(--spacex-muted); font-size: .82rem; }
+        .test-panel-section { scroll-margin-top: 1.5rem; margin-bottom: 1.5rem; }
+        .test-panel-section > .test-panel-section-title { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:0; padding: .85rem 1rem; border-bottom:1px solid var(--spacex-hairline); color:var(--spacex-ink); font-size:.82rem; letter-spacing:.09em; }
+        .test-panel-section > .test-panel-section-title small { color:var(--spacex-muted); font: .65rem var(--spacex-font-mono); letter-spacing:.06em; }
+        .test-panel-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; padding:1rem; }
+        .test-panel-grid.two { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        .test-panel-stack { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem; padding:1rem; }
+        .test-panel-field { min-width:0; }
+        .test-panel-field label { display:block; margin-bottom:.35rem; color:var(--spacex-muted); font:600 .68rem var(--spacex-font-mono); letter-spacing:.08em; text-transform:uppercase; }
+        .test-panel-field + .test-panel-field { margin-top:.75rem; }
+        .test-panel-kicker { margin:0 0 .55rem; color:var(--spacex-link); font:600 .7rem var(--spacex-font-mono); letter-spacing:.12em; text-transform:uppercase; }
+        .test-panel-stat { padding:1rem; border:1px solid var(--spacex-hairline); border-radius:var(--spacex-radius); background:var(--spacex-canvas-soft); }
+        .test-panel-stat strong { display:block; margin-top:.35rem; font-size:1.6rem; }
+        .test-panel-stat span { color:var(--spacex-muted); font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; }
+        .test-panel-code { min-height:150px; margin:0; font-size:.78rem; }
+        .test-panel-terminal { min-height:150px; margin:0; color:#bdecc8; }
+        .test-panel-file-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.75rem 1rem; border-bottom:1px solid var(--spacex-hairline); }
+        .test-panel-file-row:last-child { border-bottom:0; }
+        .test-panel-file-row small { display:block; color:var(--spacex-muted); }
+        .test-panel-auth { max-width:500px; margin:1rem; padding:1.5rem; }
+        .test-panel-auth h3 { margin-top:0; }
+        .test-panel-auth .form-group { margin-bottom:1rem; }
+        .test-panel-modal { position:fixed; inset:0; z-index:1100; display:none; align-items:center; justify-content:center; padding:1rem; background:rgba(0,0,0,.72); }
+        .test-panel-modal.is-open { display:flex; }
+        .test-panel-modal .modal-content { width:min(100%,560px); }
+        .test-panel-status { display:inline-flex; align-items:center; gap:.4rem; color:var(--spacex-success); font:600 .68rem var(--spacex-font-mono); letter-spacing:.08em; text-transform:uppercase; }
+        .test-panel-status::before { width:7px; height:7px; border-radius:50%; background:currentColor; content:''; }
+        @media (max-width:767px) { .test-panel-grid, .test-panel-grid.two { grid-template-columns:1fr; } .test-panel-section > .test-panel-section-title { align-items:flex-start; flex-direction:column; } }
+    </style>
+</head>
+<body class="hold-transition skin-blue fixed sidebar-mini spacex-admin">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="#overview" class="logo"><span>SPACEX / TEST RANGE</span></a>
+            <nav class="navbar navbar-static-top" aria-label="Test panel toolbar">
+                <a href="#" class="sidebar-toggle" id="sidebarToggle" role="button" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" title="Preview state"><span class="test-panel-status">LOCAL</span></a></li>
+                        <li class="user-menu"><a href="#auth"><span>DESIGN REVIEWER</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <aside class="main-sidebar" aria-label="Test panel navigation">
+            <section class="sidebar">
+                <ul class="sidebar-menu">
+                    <li class="header">THEME COVERAGE</li>
+                    <li class="active"><a href="#overview"><i class="fa fa-home"></i><span>OVERVIEW</span></a></li>
+                    <li><a href="#forms"><i class="fa fa-sliders"></i><span>FORMS &amp; STATES</span></a></li>
+                    <li><a href="#data"><i class="fa fa-table"></i><span>DATA &amp; NAVIGATION</span></a></li>
+                    <li><a href="#integrations"><i class="fa fa-terminal"></i><span>INTEGRATIONS</span></a></li>
+                    <li><a href="#auth"><i class="fa fa-lock"></i><span>AUTHENTICATION</span></a></li>
+                    <li class="header">LOCAL CHECKS</li>
+                    <li><a href="?passed=1"><i class="fa fa-check"></i><span>RELOAD TEST</span></a></li>
+                </ul>
+            </section>
+        </aside>
+
+        <main class="content-wrapper">
+            <section class="content-header" id="overview">
+                <p class="test-panel-kicker">LOCAL VISUAL REGRESSION SURFACE / 001</p>
+                <h1>Theme test panel</h1>
+                <p class="test-panel-note">A static, dependency-free surface for checking the SpaceX theme against the panel’s common AdminLTE, Bootstrap, React, and editor components.</p>
+            </section>
+
+            <section class="test-panel-section box">
+                <h2 class="test-panel-section-title">Mission telemetry <small>cards / badges / progress</small></h2>
+                <div class="test-panel-grid">
+                    <div class="test-panel-stat"><span>Active nodes</span><strong>08</strong><span class="test-panel-status">nominal</span></div>
+                    <div class="test-panel-stat"><span>Running servers</span><strong>142</strong><span class="label label-primary">+12.4%</span></div>
+                    <div class="test-panel-stat"><span>Resource load</span><strong>68%</strong><div class="progress"><div class="progress-bar progress-bar-info" style="width:68%">68%</div></div></div>
+                </div>
+            </section>
+
+            <section class="test-panel-section box" id="forms">
+                <h2 class="test-panel-section-title">Forms and states <small>inputs / validation / actions</small></h2>
+                <div class="test-panel-grid two">
+                    <form onsubmit="return false" aria-label="Form component preview">
+                        <div class="test-panel-field"><label for="serverName">Server name</label><input id="serverName" class="form-control" value="ORBITAL-07"></div>
+                        <div class="test-panel-field"><label for="deploymentMode">Deployment mode</label><select id="deploymentMode" class="form-control"><option>Rolling update</option><option>Immediate</option><option>Maintenance window</option></select></div>
+                        <div class="test-panel-field"><label for="notes">Mission notes</label><textarea id="notes" class="form-control" placeholder="Add operator notes..."></textarea></div>
+                        <div class="test-panel-stack" style="padding:1rem 0 0"><label><input type="checkbox" checked> Enable alerts</label><label><input type="radio" name="priority" checked> Standard</label><label><input type="radio" name="priority"> Priority</label></div>
+                        <div class="test-panel-stack" style="padding:1rem 0 0"><button class="btn btn-primary" type="submit">Save changes</button><button class="btn btn-default" type="button" disabled>Disabled</button></div>
+                    </form>
+                    <div>
+                        <div class="alert alert-success" role="status"><strong>Deployment ready.</strong><br>All preflight checks passed.</div>
+                        <div class="alert alert-warning" role="status"><strong>Attention required.</strong><br>Two nodes are approaching capacity.</div>
+                        <div class="alert alert-danger" role="alert"><strong>Action blocked.</strong><br>Credentials need to be refreshed.</div>
+                        <div class="test-panel-stack" style="padding:0"><span class="label label-success">HEALTHY</span><span class="label label-warning">DEGRADED</span><span class="label label-danger">OFFLINE</span><span class="badge badge-info">INFO</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="test-panel-section box" id="data">
+                <h2 class="test-panel-section-title">Data and navigation <small>table / tabs / dropdown / pagination</small></h2>
+                <ul class="nav nav-tabs" role="tablist"><li class="active"><a class="active" href="#servers">SERVERS</a></li><li><a href="#activity">ACTIVITY</a></li><li><a href="#audit">AUDIT LOG</a></li></ul>
+                <div class="test-panel-stack" style="justify-content:space-between"><span class="test-panel-note">142 records / updated 12 seconds ago</span><div class="dropdown"><button class="btn btn-default" id="dropdownButton" type="button">Actions <span aria-hidden="true">⌄</span></button><ul class="dropdown-menu" id="dropdownMenu"><li><a href="#export">Export list</a></li><li><a href="#refresh">Refresh data</a></li><li class="divider"></li><li><a href="#archive">Archive</a></li></ul></div></div>
+                <div class="table-responsive"><table class="table table-hover"><thead><tr><th>Server</th><th>Node</th><th>Status</th><th>CPU</th><th>Last check</th></tr></thead><tbody><tr><td><strong>ORBITAL-07</strong><br><small>minecraft / 2.4 GB</small></td><td>AMS-01</td><td><span class="label label-success">ONLINE</span></td><td>42%</td><td>12s ago</td></tr><tr><td><strong>STARLINK-22</strong><br><small>factorio / 8 GB</small></td><td>FRA-02</td><td><span class="label label-warning">STARTING</span></td><td>78%</td><td>24s ago</td></tr><tr><td><strong>DRAGON-03</strong><br><small>rust / 6 GB</small></td><td>NYC-01</td><td><span class="label label-danger">OFFLINE</span></td><td>—</td><td>3m ago</td></tr></tbody></table></div>
+                <ul class="pagination"><li class="disabled"><span>PREV</span></li><li class="active"><a href="#page1">1</a></li><li><a href="#page2">2</a></li><li><a href="#page3">3</a></li><li><a href="#page2">NEXT</a></li></ul>
+            </section>
+
+            <section class="test-panel-section box" id="integrations">
+                <h2 class="test-panel-section-title">Integrations <small>xterm / CodeMirror / file manager / modal</small></h2>
+                <div class="test-panel-grid two">
+                    <pre class="test-panel-terminal xterm" aria-label="Terminal preview">$ ptero node status
+&gt; node/AMS-01 .......... ONLINE
+&gt; wings/1.11.8 .......... READY
+&gt; heartbeat ............. 142 ms
+$ <span style="color:#70b7ff">_</span></pre>
+                    <pre class="test-panel-code CodeMirror" aria-label="Code editor preview"><span style="color:#70b7ff">const</span> mission = {
+  name: <span style="color:#4fd36a">'ORBITAL-07'</span>,
+  status: <span style="color:#4fd36a">'nominal'</span>,
+  retries: <span style="color:#e7b84b">0</span>
+};</pre>
+                </div>
+                <div class="panel" style="margin:0 1rem 1rem"><div class="panel-heading"><strong>File manager / root</strong></div><div class="test-panel-file-row"><span>📁 configs <small>Directory</small></span><span class="label label-info">READ</span></div><div class="test-panel-file-row"><span>server.properties <small>4.2 KB / modified today</small></span><span class="label label-success">SYNCED</span></div><div class="test-panel-file-row"><span>startup.sh <small>1.1 KB / modified yesterday</small></span><span class="label label-warning">CHANGED</span></div></div>
+                <div class="test-panel-stack"><button class="btn btn-primary" id="modalButton" type="button">Open modal</button><button class="btn btn-danger" type="button" onclick="this.textContent='ACTION QUEUED'">Danger action</button><span class="tooltip-inner">Tooltip surface</span></div>
+            </section>
+
+            <section class="test-panel-section box" id="auth">
+                <h2 class="test-panel-section-title">Authentication <small>login / error / responsive form</small></h2>
+                <div class="test-panel-auth login-box">
+                    <p class="test-panel-kicker">SECURE ACCESS / PANEL</p><h3>Operator sign in</h3>
+                    <div class="alert alert-info">Use your panel credentials to continue.</div>
+                    <div class="form-group"><label for="email">Email address</label><input id="email" type="email" class="form-control" value="operator@example.test"></div>
+                    <div class="form-group"><label for="password">Password</label><input id="password" type="password" class="form-control" value="password"></div>
+                    <label><input type="checkbox" checked> Remember this device</label>
+                    <button class="btn btn-primary btn-block" type="button" style="margin-top:1rem">Authenticate</button>
+                    <p style="margin:1rem 0 0;text-align:center"><a href="#reset">Reset access credentials</a></p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer"><span>LOCAL THEME TEST PANEL / NO PRODUCTION REQUESTS</span><span class="pull-right">SPACE-X THEME <strong>PASSIVE CHECK</strong></span></footer>
+    </div>
+
+    <div class="test-panel-modal" id="testModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content"><div class="modal-header"><h2 class="modal-title" id="modalTitle">Confirm deployment</h2><button class="close" id="modalClose" type="button" aria-label="Close">×</button></div><div class="modal-body"><p>This local modal verifies focus, contrast, scrolling, and action surfaces without making a network request.</p><div class="progress"><div class="progress-bar progress-bar-success" style="width:82%">82%</div></div></div><div class="modal-footer"><button class="btn btn-default" id="modalCancel" type="button">Cancel</button><button class="btn btn-primary" id="modalConfirm" type="button">Confirm locally</button></div></div>
+    </div>
+
+    <script>
+        (function () {
+            var body = document.body;
+            var toggle = document.getElementById('sidebarToggle');
+            var modal = document.getElementById('testModal');
+            var openModal = document.getElementById('modalButton');
+            var closeModal = function () { modal.classList.remove('is-open'); };
+            var menuButton = document.getElementById('dropdownButton');
+            var menu = document.getElementById('dropdownMenu');
+            toggle.addEventListener('click', function (event) { event.preventDefault(); body.classList.toggle('sidebar-open'); });
+            openModal.addEventListener('click', function () { modal.classList.add('is-open'); });
+            document.getElementById('modalClose').addEventListener('click', closeModal);
+            document.getElementById('modalCancel').addEventListener('click', closeModal);
+            document.getElementById('modalConfirm').addEventListener('click', function () { closeModal(); openModal.textContent = 'DEPLOYMENT QUEUED'; });
+            modal.addEventListener('click', function (event) { if (event.target === modal) closeModal(); });
+            menuButton.addEventListener('click', function () { menu.classList.toggle('show'); });
+            document.addEventListener('click', function (event) { if (!menuButton.contains(event.target) && !menu.contains(event.target)) menu.classList.remove('show'); });
+            document.querySelectorAll('.sidebar-menu a[href^="#"]').forEach(function (link) {
+                link.addEventListener('click', function () { document.querySelectorAll('.sidebar-menu > li').forEach(function (item) { item.classList.remove('active'); }); link.parentElement.classList.add('active'); body.classList.remove('sidebar-open'); });
+            });
+        }());
+    </script>
+</body>
+</html>

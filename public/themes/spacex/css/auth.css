@@ -584,28 +584,28 @@ form.auth-form [class*='Alert'] {
 .auth-wrapper > form .alert-success,
 [class*='AuthForm'] .alert-success,
 form.auth-form .alert-success {
-    background-color: color-mix(in srgb, var(--spacex-success) 12%, var(--spacex-canvas));
+    background-color: var(--spacex-success-bg);
     color: var(--spacex-ink);
 }
 
 .auth-wrapper > form .alert-danger,
 [class*='AuthForm'] .alert-danger,
 form.auth-form .alert-danger {
-    background-color: color-mix(in srgb, var(--spacex-error) 10%, var(--spacex-canvas));
+    background-color: var(--spacex-error-bg);
     color: var(--spacex-ink);
 }
 
 .auth-wrapper > form .alert-warning,
 [class*='AuthForm'] .alert-warning,
 form.auth-form .alert-warning {
-    background-color: color-mix(in srgb, var(--spacex-warning) 12%, var(--spacex-canvas));
+    background-color: var(--spacex-warning-bg);
     color: var(--spacex-ink);
 }
 
 .auth-wrapper > form .alert-info,
 [class*='AuthForm'] .alert-info,
 form.auth-form .alert-info {
-    background-color: color-mix(in srgb, var(--spacex-info) 12%, var(--spacex-canvas));
+    background-color: var(--spacex-info-bg);
     color: var(--spacex-ink);
 }
 
@@ -848,7 +848,7 @@ form.auth-form .alert p {
     border-radius: var(--spacex-radius) !important;
     border: 1px solid var(--spacex-hairline) !important;
     box-shadow: none !important;
-    background-color: color-mix(in srgb, var(--spacex-starlight) 4%, var(--spacex-canvas)) !important;
+    background-color: rgba(240, 240, 250, 0.04) !important;
     color: var(--spacex-body) !important;
 }
 

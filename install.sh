@@ -121,6 +121,7 @@ install_theme() {
     sudo_cmd mkdir -p "$panel_dir/public/themes/spacex/css"
     sudo_cmd install -m 0644 "$source_dir/public/themes/spacex/spacex.css" "$panel_dir/public/themes/spacex/spacex.css"
     sudo_cmd install -m 0644 "$source_dir/public/themes/spacex/theme.css" "$panel_dir/public/themes/spacex/theme.css"
+    sudo_cmd install -m 0644 "$source_dir/public/themes/spacex/test-panel.html" "$panel_dir/public/themes/spacex/test-panel.html"
     sudo_cmd cp -r "$source_dir/public/themes/spacex/css/." "$panel_dir/public/themes/spacex/css/"
 
     log "copying React component source files..."

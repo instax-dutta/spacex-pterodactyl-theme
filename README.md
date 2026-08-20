@@ -75,8 +75,6 @@ bash spacex-pterodactyl-theme/install.sh
 
 ### Manual Installation
 
-### Manual Installation
-
 1. **Copy the theme files:**
    ```bash
    # Create theme directory
@@ -167,7 +165,8 @@ spacex-pterodactyl-theme/
 │           │   ├── components.css   # All interactive components
 │           │   └── auth.css         # Authentication page styling
 │           ├── spacex.css          # Main theme styles (user-facing)
-│           └── theme.css           # Admin panel overrides (AdminLTE)
+│           ├── theme.css           # Admin panel overrides (AdminLTE)
+│           └── test-panel.html     # Dependency-free local component preview
 └── resources/
     ├── scripts/
     │   ├── assets/
@@ -182,6 +181,20 @@ spacex-pterodactyl-theme/
             │   └── core.blade.php     # Core template
             └── wrapper.blade.php     # Wrapper template
 ```
+
+To inspect the theme locally without a running panel, serve the repository root
+with any static web server and open `/public/themes/spacex/test-panel.html`.
+The preview is interactive but makes no network or panel API requests.
+
+Example:
+```bash
+python3 -m http.server 8080
+# open http://localhost:8080/public/themes/spacex/test-panel.html
+```
+
+## Release checklist
+
+Before publishing a theme release, follow [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md). It covers source hygiene, component coverage, static preview QA, disposable-panel verification, installer safety, browser testing, and rollback.
 
 ## Color Palette Reference
 
